@@ -1,0 +1,30 @@
+
+
+TODO
+Build/Test Motor Driver
+http://contextualelectronics.com/go-go-go/motor-test-code/
+  Test forward : digitalWrite
+  Test reverse : digitalWrite
+  Test pwm for speed : analogWrite
+  
+
+Design/Print the encoder wheel
+
+8.8.2015
+Built / Tested Motor Encoder:
+Replaced 1k resistor after photodiode to 10k.  Make sure measuring near 5v at the test point when blocked.
+Updated schematic, net list, associations, and schematic and revved to v2.  Only change is R102 resistor value
+
+8.1.2015
+Ordered parts from Digikey
+
+??.??.????
+Ordered motor encoder boards from oshpark
+
+
+??.??.????
+Built Motor Encoder board
+
+7.21.2015
+Ordered motor driver boards from oshpark
+

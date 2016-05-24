@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RPI-579N1
+D PC817, DIP4, DC Optocoupler, Vce 35V, CTR 50-300%
+K NPN DC Optocoupler
+F http://www.soselectronic.cz/a_info/resource/d/pc817.pdf
+$ENDCMP
+#
+#End Doc Library

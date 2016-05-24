@@ -1,0 +1,66 @@
+Cmp-Mod V01 Created by Cvpcb (2015-01-29 BZR 5396)-product   date = 7/20/2015 1:58:26 PM
+
+BeginCmp
+TimeStamp = /55AD4EC6;
+Reference = C101;
+ValeurCmp = 0.1uf;
+IdModule  = Capacitors_SMD:C_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD4F1B;
+Reference = C102;
+ValeurCmp = 10uf;
+IdModule  = Capacitors_SMD:C_1210_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD3DC3;
+Reference = C103;
+ValeurCmp = 0.1uf;
+IdModule  = Capacitors_SMD:C_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD3DEE;
+Reference = C104;
+ValeurCmp = 10uf;
+IdModule  = Capacitors_SMD:C_1210_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD4D74;
+Reference = P101;
+ValeurCmp = CONN_01X02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD46A6;
+Reference = P102;
+ValeurCmp = CONN_01X04;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x04;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD3F2F;
+Reference = P103;
+ValeurCmp = CONN_01X02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AD3E97;
+Reference = P104;
+ValeurCmp = CONN_01X02;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+EndCmp
+
+BeginCmp
+TimeStamp = /55AAE95A;
+Reference = U101;
+ValeurCmp = TB6593FNG;
+IdModule  = SMD_Packages:SSOP-20;
+EndCmp
+
+EndListe
