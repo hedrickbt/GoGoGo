@@ -1,0 +1,23 @@
+/*
+ * GPIO_conf.c
+ *
+ *  Created on: May 24, 2016
+ *      Author: vagrant
+ */
+
+#include "GPIO_conf.h"
+
+#include "cmsis_device.h";
+
+void GPIO_conf_OutputPin(GPIO_TypeDef* GPIOx, uint16_t pin) {
+	switch (GPIOx) {
+	case GPIOA:
+		break;
+
+	case GPIOB:
+		break;
+
+	case GPIOC:
+		break;
+	}
+}
