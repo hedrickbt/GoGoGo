@@ -28,6 +28,7 @@ void setup(void) {
 	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_10); 		// in1
 	GPIO_conf_OutputPin(GPIOA, GPIO_Pin_9); 		// in2
 	GPIO_conf_InterruptPin(GPIOA, GPIO_Pin_10);  	// decoder interrupt
+
 }
 
 
