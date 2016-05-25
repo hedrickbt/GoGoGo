@@ -73,20 +73,4 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin) {
 	TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
 	TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
 
-	if (port == GPIOB) {
-		if (pin == GPIO_Pin_4) {
-			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-
-			GPIO_PinAFConfig(port, pin, GPIO_AF_1);
-			TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
-			TIM_OC1Init(TIM3, &TIM_OCInitStructure);
-
-			TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
-			TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Repetitive);
-
-			TIM_Cmd(TIM3, ENABLE);
-			TIM_CtrlPWMOutputs(TIM3, ENABLE);
-		}
-	}
-
 }

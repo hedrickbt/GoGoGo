@@ -8,3 +8,13 @@ Command-line arguments:  -data /home/vagrant/repos/GoGoGo/stm32/TestCode -os lin
 
 !ENTRY org.eclipse.cdt.core 1 0 2016-05-24 02:37:06.579
 !MESSAGE Indexed 'MotorTest1' (20 sources, 51 headers) in 19.4 sec: 6,092 declarations; 10,889 references; 32 unresolved inclusions; 111 syntax errors; 3,143 unresolved names (16%)
+!SESSION 2016-05-25 02:53:39.317 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY ilg.gnuarmeclipse.packs.data 4 1 2016-05-25 03:22:49.440
+!MESSAGE File .repos.xml does not exist, using defaults.

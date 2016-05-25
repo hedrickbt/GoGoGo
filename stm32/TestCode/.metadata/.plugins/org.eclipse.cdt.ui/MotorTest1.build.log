@@ -1,19 +1,9 @@
-02:43:58 **** Incremental Build of configuration Debug for project MotorTest1 ****
+03:18:09 **** Incremental Build of configuration Debug for project MotorTest1 ****
 make all 
-Building file: ../src/GPIO.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/GPIO.d" -MT"src/GPIO.o" -c -o "src/GPIO.o" "../src/GPIO.c"
-Finished building: ../src/GPIO.c
- 
 Building file: ../src/GPIO_conf.c
 Invoking: Cross ARM C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/GPIO_conf.d" -MT"src/GPIO_conf.o" -c -o "src/GPIO_conf.o" "../src/GPIO_conf.c"
 Finished building: ../src/GPIO_conf.c
- 
-Building file: ../src/main.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
-Finished building: ../src/main.c
  
 Building target: MotorTest1.elf
 Invoking: Cross ARM C++ Linker
@@ -31,5 +21,5 @@ arm-none-eabi-size --format=berkeley "MotorTest1.elf"
 Finished building: MotorTest1.siz
  
 
-02:43:59 Build Finished (took 844ms)
+03:18:09 Build Finished (took 305ms)
 
