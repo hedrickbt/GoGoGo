@@ -1,0 +1,17 @@
+/*
+ * GPIO.c
+ *
+ *  Created on: May 25, 2016
+ *      Author: vagrant
+ */
+
+#include "GPIO.h"
+#include "GPIO_conf.h"
+#include "stm32f0xx_gpio.h"
+#include "cmsis_device.h"
+
+void GPIO_DigitalWrite(GPIO_TypeDef *port, uint16_t pin, uint16_t value) {
+	if (value == HIGH) {
+
+	}
+}

@@ -14,8 +14,8 @@
 #define LOW 0
 #define HIGH 1
 
-void GPIO_conf_OutputPin(GPIO_TypeDef *port, uint16_t pin);
-void GPIO_conf_InputPin(GPIO_TypeDef *port, uint16_t pin);
+void GPIO_conf_OutputPin(GPIO_TypeDef* GPIOx, uint16_t pin);
+void GPIO_conf_InputPin(GPIO_TypeDef* GPIOx, uint16_t pin);
 
 
 
