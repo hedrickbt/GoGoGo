@@ -9,9 +9,15 @@
 #define INCLUDE_GPIO_CONF_H_
 
 #include <stdint.h>
-#include "cmsis_device.h"
 
-
+/*
+ * usage			Arduino					stm32
+ * standby			0						PA_3
+ * decoder			2						PA_10
+ * pwm				5						PB_4
+ * in1				6						PB_10
+ * in2				8						PA_9
+ */
 void GPIO_conf_OutputPin(GPIO_TypeDef* GPIOx, uint16_t pin);
 
 

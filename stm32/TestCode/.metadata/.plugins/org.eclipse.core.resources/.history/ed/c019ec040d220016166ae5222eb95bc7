@@ -3,7 +3,6 @@
 #include "diag/Trace.h"
 
 #include "GPIO_conf.h"
-#include "cmsis_device.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -22,11 +21,6 @@
 void setup(void);
 
 void setup(void) {
-	GPIO_conf_OutputPin(GPIOA, GPIO_Pin_3); // standby
-	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_10); // decoder
-	//GPIO_conf_OutputPin(GPIOB, GPIO_Pin_4); // pwm
-	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_10); // in1
-	GPIO_conf_OutputPin(GPIOA, GPIO_Pin_9); // in2
 
 }
 
