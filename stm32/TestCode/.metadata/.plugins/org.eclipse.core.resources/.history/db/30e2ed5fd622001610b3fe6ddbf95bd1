@@ -47,7 +47,7 @@ void EXTI4_15_IRQHandler(void) {
 }
 
 void delay(void){
-	uint32_t i = 12345;
+	uint32_t i = 123456;
 	while (i > 0) {
 		i--;
 	}
@@ -66,16 +66,11 @@ void left_wheel(bool forward, uint16_t velocity, uint32_t steps) {
 			GPIO_DigitalWrite(GPIOA, GPIO_Pin_9, HIGH);
 		}
 	}
-
-	GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
-	GPIO_DigitalWrite(GPIOA, GPIO_Pin_9, HIGH);
 }
 
 void main(int argc, char* argv[]) {
 	while (1) {
-		left_wheel(true, 50, 100);
-		delay();
-		left_wheel(false, 100, 10);
+		// Add your code here.
 	}
 }
 

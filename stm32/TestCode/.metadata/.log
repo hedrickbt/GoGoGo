@@ -18,3 +18,15 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY ilg.gnuarmeclipse.packs.data 4 1 2016-05-25 03:22:49.440
 !MESSAGE File .repos.xml does not exist, using defaults.
+!SESSION 2016-05-25 23:38:44.652 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2016-05-26 00:12:51.016
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
