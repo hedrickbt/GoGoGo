@@ -72,8 +72,6 @@ void left_wheel(bool forward, uint16_t velocity, uint32_t steps) {
 }
 
 void main(int argc, char* argv[]) {
-	setup();
-
 	while (1) {
 		left_wheel(true, 50, 100);
 		delay();
