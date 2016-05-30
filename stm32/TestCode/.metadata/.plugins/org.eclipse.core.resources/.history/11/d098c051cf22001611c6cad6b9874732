@@ -100,19 +100,6 @@ void GPIO_conf_InterruptPin(GPIO_TypeDef *port, uint16_t pin) {
 	if (port == GPIOA) {
 		if (pin == GPIO_Pin_10) {  // GPIO_PinSource_10 ?
 			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource10);
-
-			EXTI_InitStructure.EXTI_Line = EXTI_Line10;
-
 		}
 	}
-
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
 }
