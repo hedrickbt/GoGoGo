@@ -1,9 +1,0 @@
-/*
- * GPIO_conf.c
- *
- *  Created on: May 24, 2016
- *      Author: vagrant
- */
-
-#include "GPIO_conf.h"
-
