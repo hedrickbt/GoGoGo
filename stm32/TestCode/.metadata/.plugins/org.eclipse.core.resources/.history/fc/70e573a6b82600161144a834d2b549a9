@@ -1,0 +1,125 @@
+/*
+ * GPIO_conf.c
+ *
+ *  Created on: May 24, 2016
+ *      Author: vagrant
+ */
+
+#include "GPIO_conf.h"
+
+#include "cmsis_device.h"
+
+void GPIO_conf_OutputPin(GPIO_TypeDef *port, uint16_t pin) {
+
+	if (port == GPIOA) {
+		RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+	} else if (port == GPIOB) {
+		RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
+	} else if (port == GPIOC) {
+		RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
+	} else {
+		// Now what?!
+	}
+
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	GPIO_InitStructure.GPIO_Pin = pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+
+	GPIO_Init(port, &GPIO_InitStructure);
+
+}
+
+void GPIO_conf_InputPin(GPIO_TypeDef *port, uint16_t pin) {
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	GPIO_InitStructure.GPIO_Pin = pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	//GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+
+	GPIO_Init(port, &GPIO_InitStructure);
+}
+
+void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
+	GPIO_InitTypeDef 			GPIO_InitStructure;
+	TIM_TimeBaseInitTypeDef 	TIM_TimeBaseStructure;
+	TIM_OCInitTypeDef 			TIM_OCInitStructure;
+
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE); // bth added
+
+	// begin good
+	GPIO_InitStructure.GPIO_Pin = pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+
+	GPIO_Init(port, &GPIO_InitStructure);
+	// end good
+
+	TIM_TimeBaseStructure.TIM_Prescaler = 0;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseStructure.TIM_Period = ( SystemCoreClock / 1000 ) - 1;
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;  // bth changed from just 0
+	TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
+
+	TIM_OCInitStructure.TIM_Pulse = 3000; //bth changed from 0
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
+	TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+	TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
+	TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
+
+	if (port == GPIOB) {
+		if (pin == GPIO_Pin_4) {
+			// set up the timer
+			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+
+			TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+			//TIM_CtrlPWMOutputs(TIM3, ENABLE);
+			TIM_Cmd(TIM3, ENABLE);
+
+			// set up pwm
+			TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+			TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
+			GPIO_PinAFConfig(port, pinSource, GPIO_AF_1);
+
+			TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Repetitive);
+
+		}
+	}
+
+}
+
+void GPIO_conf_InterruptPin(GPIO_TypeDef *port, uint16_t pin) {
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+	EXTI_InitTypeDef EXTI_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+
+
+	if (port == GPIOA) {
+		if (pin == GPIO_Pin_10) {
+			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource10);
+
+			EXTI_InitStructure.EXTI_Line = EXTI_Line10;
+
+		}
+	}
+
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+	EXTI_Init(&EXTI_InitStructure);
+
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}

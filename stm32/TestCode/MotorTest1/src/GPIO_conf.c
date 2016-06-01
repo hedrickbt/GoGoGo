@@ -45,11 +45,14 @@ void GPIO_conf_InputPin(GPIO_TypeDef *port, uint16_t pin) {
 	GPIO_Init(port, &GPIO_InitStructure);
 }
 
-void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin) {
+void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
 	GPIO_InitTypeDef 			GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef 	TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef 			TIM_OCInitStructure;
 
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE); // bth added
+
+	// begin good
 	GPIO_InitStructure.GPIO_Pin = pin;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -57,14 +60,15 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin) {
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 
 	GPIO_Init(port, &GPIO_InitStructure);
+	// end good
 
 	TIM_TimeBaseStructure.TIM_Prescaler = 0;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseStructure.TIM_Period = ( SystemCoreClock / 1000 ) - 1;
-	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;  // bth changed from just 0
 	TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
 
-	TIM_OCInitStructure.TIM_Pulse = 0;
+	TIM_OCInitStructure.TIM_Pulse = 0; //45000; //bth changed from 0 3000=6.2% duty, 30,000=62.60% duty
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
@@ -74,18 +78,18 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin) {
 	TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
 
 	if (port == GPIOB) {
-		if (pin == GPIO_Pin_4) { // GPIO_PinSource_4 ?
+		if (pin == GPIO_Pin_4) {
+			// set up the timer
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
-			GPIO_PinAFConfig(port, pin, GPIO_AF_1);
+			GPIO_PinAFConfig(port, pinSource, GPIO_AF_1);
 			TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
 			TIM_OC1Init(TIM3, &TIM_OCInitStructure);
 
 			TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
 			TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Repetitive);
-
 			TIM_Cmd(TIM3, ENABLE);
-			TIM_CtrlPWMOutputs(TIM3, ENABLE);
+			//TIM_CtrlPWMOutputs(TIM3, ENABLE);
 		}
 	}
 
@@ -98,7 +102,7 @@ void GPIO_conf_InterruptPin(GPIO_TypeDef *port, uint16_t pin) {
 
 
 	if (port == GPIOA) {
-		if (pin == GPIO_Pin_10) {  // GPIO_PinSource_10 ?
+		if (pin == GPIO_Pin_10) {
 			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource10);
 
 			EXTI_InitStructure.EXTI_Line = EXTI_Line10;
