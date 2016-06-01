@@ -1,11 +1,11 @@
-01:49:02 **** Incremental Build of configuration Debug for project MotorTest1 ****
+00:19:17 **** Incremental Build of configuration Debug for project MotorTest1 ****
 make all 
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "MotorTest1.elf"
    text	   data	    bss	    dec	    hex	filename
-   4680	     76	    272	   5028	   13a4	MotorTest1.elf
+   4748	     76	    272	   5096	   13e8	MotorTest1.elf
 Finished building: MotorTest1.siz
  
 
-01:49:02 Build Finished (took 68ms)
+00:19:17 Build Finished (took 80ms)
 

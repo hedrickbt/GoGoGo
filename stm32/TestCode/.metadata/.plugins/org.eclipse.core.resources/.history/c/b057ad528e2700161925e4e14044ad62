@@ -48,7 +48,7 @@ void EXTI4_15_IRQHandler(void) {
 }
 
 void delay(void){
-	uint32_t i = 123456;
+	uint32_t i = 12345;
 	while (i > 0) {
 		i--;
 	}
@@ -79,11 +79,11 @@ void main(int argc, char* argv[]) {
 	setup();
 
 	while (1) {
-		left_wheel(true, 50, 5);
+		left_wheel(true, 5, 100);
 		//left_wheel(true, 50, 100);
 		delay();
 		//left_wheel(false, 100, 10);
-		left_wheel(false, 100, 5);
+		left_wheel(false, 5, 10);
 	}
 }
 

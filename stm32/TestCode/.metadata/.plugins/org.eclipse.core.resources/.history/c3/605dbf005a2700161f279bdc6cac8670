@@ -68,7 +68,7 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;  // bth changed from just 0
 	TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
 
-	TIM_OCInitStructure.TIM_Pulse = 0; //45000; //bth changed from 0 3000=6.2% duty, 30,000=62.60% duty
+	TIM_OCInitStructure.TIM_Pulse = 45000; //bth changed from 0 3000=6.2% duty, 30,000=62.60% duty
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Enable;
@@ -80,16 +80,16 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
 	if (port == GPIOB) {
 		if (pin == GPIO_Pin_4) {
 			// set up the timer
-			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM15, ENABLE);
 
 			GPIO_PinAFConfig(port, pinSource, GPIO_AF_1);
-			TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
-			TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+			TIM_TimeBaseInit(TIM15, &TIM_TimeBaseStructure);
+			TIM_OC1Init(TIM15, &TIM_OCInitStructure);
 
-			TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
-			TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Repetitive);
-			TIM_Cmd(TIM3, ENABLE);
-			//TIM_CtrlPWMOutputs(TIM3, ENABLE);
+			TIM_OC1PreloadConfig(TIM15, TIM_OCPreload_Enable);
+			TIM_SelectOnePulseMode(TIM15, TIM_OPMode_Repetitive);
+			TIM_Cmd(TIM15, ENABLE);
+			TIM_CtrlPWMOutputs(TIM15, ENABLE);
 		}
 	}
 

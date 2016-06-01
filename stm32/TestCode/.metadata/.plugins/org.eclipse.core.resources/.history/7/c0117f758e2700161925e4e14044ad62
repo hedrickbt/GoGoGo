@@ -48,7 +48,7 @@ void EXTI4_15_IRQHandler(void) {
 }
 
 void delay(void){
-	uint32_t i = 123456;
+	uint32_t i = 12345;
 	while (i > 0) {
 		i--;
 	}
