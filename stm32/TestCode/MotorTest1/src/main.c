@@ -14,7 +14,7 @@
 
 /*
  * usage			Arduino					stm32
- * standby			0						PA_3, PA_8
+ * standby			0						PA_8  NOTE: PA_3 did not work
  * decoder			2						PA_10
  * pwm				5						PB_4
  * in1				6						PB_10
@@ -29,7 +29,7 @@ void left_wheel(bool forward, uint16_t velocity, uint32_t steps);
 uint32_t counter = 0;
 
 void setup(void) {
-	GPIO_conf_OutputPin(GPIOA, GPIO_Pin_3); 						// standby
+	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_3); 						// standby
 	GPIO_conf_OutputPin(GPIOA, GPIO_Pin_8); 						// standby bth test
 	GPIO_conf_InputPin(GPIOA, GPIO_Pin_10); 						// decoder
 	GPIO_conf_PwmPin(GPIOB, GPIO_Pin_4, GPIO_PinSource4); 			// pwm
@@ -57,7 +57,7 @@ void delay(void){
 void left_wheel(bool forward, uint16_t velocity, uint32_t steps) {
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
 	counter = 0;
-	GPIO_DigitalWrite(GPIOA, GPIO_Pin_3, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_3, HIGH); // bth moved outside of the loop - no idea why it is in there.
 	GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
 	while (counter < steps) {
 		if (forward) {
@@ -71,7 +71,7 @@ void left_wheel(bool forward, uint16_t velocity, uint32_t steps) {
 
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
 	GPIO_DigitalWrite(GPIOA, GPIO_Pin_9, HIGH);
-	GPIO_DigitalWrite(GPIOA, GPIO_Pin_3, LOW);  //bth added
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_3, LOW);  //bth added
 	GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, LOW);  //bth added
 }
 
