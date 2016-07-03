@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="324" key="DIALOG_WIDTH"/>
 		<item value="225" key="DIALOG_Y_ORIGIN"/>
-		<item value="1153" key="DIALOG_X_ORIGIN"/>
-		<item value="519" key="DIALOG_HEIGHT"/>
+		<item value="547" key="DIALOG_HEIGHT"/>
+		<item value="555" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Pin_3" key="selection"/>
+		<item value="GPIO_Pin_5" key="selection"/>
 		<list key="findhistory">
+			<item value="GPIO_Pin_5"/>
+			<item value="GPIO_Pin_8"/>
+			<item value="pa_8"/>
 			<item value="pin_3"/>
 			<item value="TIM15"/>
 			<item value="TIM3"/>
 			<item value="GPIO_Pin_10"/>
 			<item value="IS_TIM_LIST2_PERIPH"/>
-			<item value="TIM_CtrlPWMOutputs"/>
-			<item value="apb2"/>
-			<item value="tim3"/>
 		</list>
 		<list key="replacehistory">
 			<item value="TIM3"/>
