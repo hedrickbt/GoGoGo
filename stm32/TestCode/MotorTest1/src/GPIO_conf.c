@@ -51,6 +51,7 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
 	TIM_OCInitTypeDef 			TIM_OCInitStructure;
 
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE); // bth added
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE); // bth added
 
 	// begin good
 	GPIO_InitStructure.GPIO_Pin = pin;
@@ -84,12 +85,30 @@ void GPIO_conf_PwmPin(GPIO_TypeDef *port, uint16_t pin, uint8_t pinSource) {
 
 			GPIO_PinAFConfig(port, pinSource, GPIO_AF_1);
 			TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+			TIM_Cmd(TIM3, ENABLE);
+
 			TIM_OC1Init(TIM3, &TIM_OCInitStructure);
 
 			TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
 			TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Repetitive);
-			TIM_Cmd(TIM3, ENABLE);
+			//TIM_Cmd(TIM3, ENABLE);
 			//TIM_CtrlPWMOutputs(TIM3, ENABLE);
+		}
+
+		if (pin == GPIO_Pin_1) {
+			// set up the timer
+			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14, ENABLE);
+
+			GPIO_PinAFConfig(port, pinSource, GPIO_AF_0);
+			TIM_TimeBaseInit(TIM14, &TIM_TimeBaseStructure);
+			TIM_Cmd(TIM14, ENABLE);
+
+			TIM_OC1Init(TIM14, &TIM_OCInitStructure);
+
+			TIM_OC1PreloadConfig(TIM14, TIM_OCPreload_Enable);
+			TIM_SelectOnePulseMode(TIM14, TIM_OPMode_Repetitive);
+			//TIM_Cmd(TIM14, ENABLE);
+			//TIM_CtrlPWMOutputs(TIM14, ENABLE);
 		}
 	}
 
@@ -102,11 +121,29 @@ void GPIO_conf_InterruptPin(GPIO_TypeDef *port, uint16_t pin) {
 
 
 	if (port == GPIOA) {
+		// GPIOA Interrupts not used as of 12.17.2016, plus there would be a conflict
+		// with A.9 and B.9 both having the same EXTI... value of 9
 		if (pin == GPIO_Pin_10) {
 			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource10);
-
 			EXTI_InitStructure.EXTI_Line = EXTI_Line10;
-
+		}
+		if (pin == GPIO_Pin_9) {
+			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource9);
+			EXTI_InitStructure.EXTI_Line = EXTI_Line9;
+		}
+	} else if (port == GPIOB) {
+		if (pin == GPIO_Pin_8) {
+			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource8);
+			EXTI_InitStructure.EXTI_Line = EXTI_Line8;
+		}
+		if (pin == GPIO_Pin_9) {
+			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource9);
+			EXTI_InitStructure.EXTI_Line = EXTI_Line9;
+		}
+	} else if (port == GPIOC) {
+		if (pin == GPIO_Pin_13) {
+			SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource13);
+			EXTI_InitStructure.EXTI_Line = EXTI_Line13;
 		}
 	}
 

@@ -1,0 +1,158 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "diag/Trace.h"
+
+#include "GPIO_conf.h"
+#include "GPIO.h"
+#include "cmsis_device.h"
+#include <stdbool.h>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wmissing-declarations"
+#pragma GCC diagnostic ignored "-Wreturn-type"
+
+/* LEFT
+ * usage			Arduino					stm32
+ * standby			4						PB_5 (NOT PA_3, PA_8)
+ * decoder			2						PB_9
+ * pwm				5						PB_4
+ * in1				6						PB_10
+ * in2				8						PB_3
+ */
+
+/* RIGHT
+ * usage			Arduino					stm32
+ * standby			?						PB_15
+ * decoder			?						PB_8
+ * pwm				?						PB_1
+ * in1				?						PB_14
+ * in2				?						PB_13
+ */
+
+// User button PC13
+
+void setup(void);
+void EXTI4_15_IRQHandler(void);
+void delay(void);
+void left_wheel(bool forward, uint16_t velocity, uint32_t steps);
+void right_wheel(bool forward, uint16_t velocity, uint32_t steps);
+
+uint32_t left_wheel_counter = 0;
+uint32_t right_wheel_counter = 0;
+bool is_stopped = true;
+
+void setup(void) {
+	// Left Wheel
+	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_3); 						// standby
+	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_8); 						// standby bth test
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_5); 						// standby
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_10); 						// in1
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_3); 						// in2
+	GPIO_conf_InputPin(GPIOB, GPIO_Pin_9); 							// decoder
+	GPIO_conf_PwmPin(GPIOB, GPIO_Pin_4, GPIO_PinSource4); 			// pwm
+	GPIO_conf_InterruptPin(GPIOB, GPIO_Pin_9);  					// decoder interrupt
+
+	// Right Wheel
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_15); 						// standby
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_14); 						// in1
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_13); 						// in2
+	GPIO_conf_InputPin(GPIOB, GPIO_Pin_8); 							// decoder
+	GPIO_conf_PwmPin(GPIOB, GPIO_Pin_1, GPIO_PinSource1); 			// pwm
+	GPIO_conf_InterruptPin(GPIOB, GPIO_Pin_8);  					// decoder interrupt
+
+	// Interface
+	GPIO_conf_InputPin(GPIOC, GPIO_Pin_13); 						// start/stop button
+}
+
+void EXTI4_15_IRQHandler(void) {
+	// we really shouldn't clear the pending IRQ until both checks have run
+	if ((EXTI->PR & EXTI_PR_PR9) != (uint32_t)0) { // line 9 aka pin 9
+		EXTI->PR = EXTI_PR_PR9;
+		//trace_print("pulse");
+		left_wheel_counter++;
+	}
+	if ((EXTI->PR & EXTI_PR_PR8) != (uint32_t)0) {
+		EXTI->PR = EXTI_PR_PR8;
+		//trace_print("pulse");
+		right_wheel_counter++;
+	}
+
+	NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
+}
+
+void delay(void){
+	uint32_t i = 123456;
+	while (i > 0) {
+		i--;
+	}
+}
+
+void left_wheel(bool forward, uint16_t velocity, uint32_t steps) {
+	if (is_stopped) return;
+
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
+	left_wheel_counter = 0;
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	while (left_wheel_counter < steps) {
+		if (forward) {
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
+		} else {
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
+		}
+	}
+
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, LOW);  //bth added
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, LOW);  //bth added
+}
+
+void right_wheel(bool forward, uint16_t velocity, uint32_t steps) {
+	if (is_stopped) return;
+
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
+	right_wheel_counter = 0;
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	while (right_wheel_counter < steps) {
+		if (forward) {
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
+		} else {
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
+			GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
+		}
+	}
+
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, LOW);  //bth added
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, LOW);  //bth added
+}
+
+void main(int argc, char* argv[]) {
+	setup();
+
+	while (1) {
+		left_wheel(true, 50, 5);
+		//left_wheel(true, 50, 100);
+		delay();
+		//left_wheel(false, 100, 10);
+		left_wheel(false, 100, 5);
+
+		delay();
+
+		right_wheel(true, 50, 5);
+		//left_wheel(true, 50, 100);
+		delay();
+		//left_wheel(false, 100, 10);
+		right_wheel(false, 100, 5);
+
+	}
+}
+
+#pragma GCC diagnostic pop
