@@ -1,0 +1,15 @@
+			Color		RedBoard/Arduino Pin	STM32 Pin
+Left Wheel Standby	Blue		4			PB_5
+Left Wheel Decoder 	Yellow		2			PB_9
+Left Wheel Pwm		Green		5			PB_4
+Left Wheel In1		Yellow		6			PB_10
+Left Wheel In2		Orange		7			PB_3
+
+Right Wheel Standby	Blue		8			PB_15
+Right Wheel Decoder	White		3			PB_8
+Right Wheel Pwm		Green		9			PB_1
+Right Wheel In1		Yellow		10			PB_14
+Right Wheel In2		Orange		11			PB_13
+
+
+STM32
