@@ -1,7 +1,11 @@
 {
   "version": "v1",
   "title": "Eclipse Automated Error Reporting",
+<<<<<<< HEAD
   "timestamp": 1482010343622,
+=======
+  "timestamp": 1467553369213,
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
   "ttl": 10080,
   "helpUrl": "https://dev.eclipse.org/recommenders/community/aeri/v2/help/",
   "feedbackUrl": "http://ctrlflow.com/automated-error-reporting",
@@ -18,15 +22,25 @@
   ],
   "acceptedPlugins": [
     "org.apache.log4j.*",
+<<<<<<< HEAD
     "org.eclipse.*",
     "org.fordiac.*"
+=======
+    "org.eclipse.*"
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
   ],
   "acceptedPackages": [
     "ch.qos.*",
     "com.cforcoding.*",
+<<<<<<< HEAD
     "com.google.*",
     "com.gradleware.tooling.*",
     "com.mountainminds.eclemma.*",
+=======
+    "com.ctrlflow.*",
+    "com.google.*",
+    "com.gradleware.tooling.*",
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
     "com.naef.*",
     "com.sun.*",
     "java.*",
@@ -34,15 +48,20 @@
     "javax.*",
     "org.apache.*",
     "org.eclipse.*",
+<<<<<<< HEAD
     "org.fordiac.*",
     "org.gradle.*",
     "org.jacoco.*",
+=======
+    "org.gradle.*",
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
     "org.osgi.*",
     "org.slf4j.*",
     "sun.*"
   ],
   "requiredPackages": [
     "com.cforcoding.*",
+<<<<<<< HEAD
     "com.gradleware.tooling.*",
     "com.mountainminds.eclemma.*",
     "com.naef.*",
@@ -50,11 +69,21 @@
     "org.fordiac.*",
     "org.gradle.*",
     "org.jacoco.*"
+=======
+    "com.ctrlflow.*",
+    "com.gradleware.tooling.*",
+    "com.naef.*",
+    "org.eclipse.*",
+    "org.gradle.*"
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
   ],
   "acceptOtherPackages": true,
   "acceptUiFreezes": true,
   "ignoredStatuses": [
+<<<<<<< HEAD
     ":java.io.IOException:There is not enough space on the disk",
+=======
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
     ":java.net.*:",
     "org.eclipse.core.filesystem::Could not delete*",
     "org.eclipse.core.filesystem::Could not move*",
@@ -66,5 +95,9 @@
     "org.eclipse.pde.core::The current target platform contains errors*",
     "org.eclipse.ui::Conflicting handlers for*"
   ],
+<<<<<<< HEAD
   "problemsZipLastDownloadTimestamp": 1482010657550
+=======
+  "problemsZipLastDownloadTimestamp": 1467553672187
+>>>>>>> eda046f5ea2573c81fa5811d4f4e7c4c24ebd3e7
 }

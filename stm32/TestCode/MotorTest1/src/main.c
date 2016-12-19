@@ -9,8 +9,6 @@
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
 
-// User button PC13
-
 void delay(void);
 
 void delay(void){
@@ -37,7 +35,6 @@ void main(int argc, char* argv[]) {
 		delay();
 		//left_wheel(false, 100, 10);
 		//right_wheel(false, 100, 5);
-
 	}
 }
 
