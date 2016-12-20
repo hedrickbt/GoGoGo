@@ -56,27 +56,25 @@ void EXTI4_15_IRQHandler(void) {
 void Wheel_Straight(bool forward, uint16_t velocity, uint32_t steps) {
 	//if (is_stopped) return;
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
-	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
-
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
-	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
-
 	if (forward) {
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
-
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
 	} else {
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
+	}
 
+
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	if (forward) {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
+	} else {
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
 	}
-
-	LeftWheel_Init();
-	RightWheel_Init();
 }
 
 void Wheel_TurnLeftWheel(bool forward, uint16_t velocity, uint32_t steps) {

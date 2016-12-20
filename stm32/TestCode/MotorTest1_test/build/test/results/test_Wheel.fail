@@ -1,0 +1,38 @@
+---
+:source:
+  :path: test
+  :file: test_Wheel.c
+:successes:
+- :test: test_whenWheelsAreInitialized_thenWeSetTheCorrectPins
+  :line: 11
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel
+  :line: 17
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel
+  :line: 31
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel
+  :line: 40
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel
+  :line: 50
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel
+  :line: 64
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel
+  :line: 73
+  :message: ''
+:failures:
+- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel
+  :line: 86
+  :message: Expected TRUE Was FALSE
+:ignores: []
+:counts:
+  :total: 8
+  :passed: 7
+  :failed: 1
+  :ignored: 0
+:stdout:
+- ''

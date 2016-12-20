@@ -38,6 +38,13 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_whenWheelsAreInitialized_thenWeSetTheCorrectPins();
+extern void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel();
+extern void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel();
+extern void test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel();
+extern void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel();
+extern void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel();
+extern void test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel();
+extern void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel();
 
 
 /*=======Mock Management=====*/
@@ -76,7 +83,14 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_Wheel.c");
-  RUN_TEST(test_whenWheelsAreInitialized_thenWeSetTheCorrectPins, 9);
+  RUN_TEST(test_whenWheelsAreInitialized_thenWeSetTheCorrectPins, 11);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 17);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel, 31);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel, 40);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel, 50);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel, 64);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel, 73);
+  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 83);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());
