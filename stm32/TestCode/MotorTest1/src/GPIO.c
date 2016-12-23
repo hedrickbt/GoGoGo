@@ -1,10 +1,3 @@
-/*
- * GPIO.c
- *
- *  Created on: May 25, 2016
- *      Author: vagrant
- */
-
 #include "GPIO.h"
 #include "GPIO_conf.h"
 #include "stm32f0xx_gpio.h"

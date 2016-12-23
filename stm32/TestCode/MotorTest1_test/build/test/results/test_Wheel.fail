@@ -4,35 +4,72 @@
   :file: test_Wheel.c
 :successes:
 - :test: test_whenWheelsAreInitialized_thenWeSetTheCorrectPins
-  :line: 11
+  :line: 25
   :message: ''
 - :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel
-  :line: 17
-  :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel
   :line: 31
   :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel
+  :line: 48
+  :message: ''
 - :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel
-  :line: 40
+  :line: 57
   :message: ''
 - :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel
-  :line: 50
+  :line: 67
   :message: ''
 - :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel
-  :line: 64
+  :line: 84
   :message: ''
 - :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel
-  :line: 73
+  :line: 98
+  :message: ''
+- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel
+  :line: 108
+  :message: ''
+- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel
+  :line: 125
+  :message: ''
+- :test: test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters
+  :line: 142
+  :message: ''
+- :test: test_whenWheelsGoStraight_thenWeExitIfIsStopped
+  :line: 149
   :message: ''
 :failures:
-- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel
-  :line: 86
+- :test: test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop
+  :line: 160
   :message: Expected TRUE Was FALSE
 :ignores: []
 :counts:
-  :total: 8
-  :passed: 7
+  :total: 12
+  :passed: 11
   :failed: 1
   :ignored: 0
 :stdout:
+- Wheel_Straight
+- "\tLoop"
+- "\t\tForward"
+- "\t\t\tGo Left"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
+- "\tLoop"
+- "\t\tForward"
+- "\t\t\tGo Left"
+- "\t\t\tGo Right"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
+- "\tLoop"
+- "\t\tReverse"
+- "\t\t\tGo Left"
+- Wheel_Straight
+- "\tLoop"
+- "\t\tReverse"
+- "\t\t\tGo Left"
+- "\t\t\tGo Right"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
 - ''
