@@ -1,14 +1,9 @@
-20:56:13 **** Incremental Build of configuration Debug for project MotorTest1 ****
+23:00:21 **** Incremental Build of configuration Debug for project MotorTest1 ****
 make all 
 Building file: ../src/Wheel.c
 Invoking: Cross ARM C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
 Finished building: ../src/Wheel.c
- 
-Building file: ../src/WheelEncoder.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
-Finished building: ../src/WheelEncoder.c
  
 Building target: MotorTest1.elf
 Invoking: Cross ARM C++ Linker
@@ -22,9 +17,9 @@ Finished building: MotorTest1.hex
 Invoking: Cross ARM GNU Print Size
 arm-none-eabi-size --format=berkeley "MotorTest1.elf"
    text	   data	    bss	    dec	    hex	filename
-   5476	     80	    276	   5832	   16c8	MotorTest1.elf
+   5400	     80	    276	   5756	   167c	MotorTest1.elf
 Finished building: MotorTest1.siz
  
 
-20:56:14 Build Finished (took 1s.537ms)
+23:00:22 Build Finished (took 881ms)
 

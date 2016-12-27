@@ -22,7 +22,7 @@ void main(int argc, char* argv[]) {
 	Wheel_Initialize();
 
 	while (1) {
-		Wheel_TurnLeftWheel(true, 50, 100);
+		Wheel_TurnLeftWheel(true, 50);
 		//left_wheel(true, 50, 100);
 		//delay();
 		//left_wheel(false, 100, 10);
@@ -30,7 +30,7 @@ void main(int argc, char* argv[]) {
 
 		//delay();
 
-		Wheel_TurnRightWheel(true, 50, 100);
+		Wheel_TurnRightWheel(true, 50);
 		//left_wheel(true, 50, 100);
 		delay();
 		//left_wheel(false, 100, 10);

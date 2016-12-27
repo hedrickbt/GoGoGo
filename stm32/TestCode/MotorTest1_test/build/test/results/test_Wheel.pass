@@ -4,72 +4,70 @@
   :file: test_Wheel.c
 :successes:
 - :test: test_whenWheelsAreInitialized_thenWeSetTheCorrectPins
-  :line: 25
+  :line: 27
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel
-  :line: 31
+- :test: test_whenLeftWheelGoesForward_thenWeSetTheCorrectDirectionPins
+  :line: 35
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel
-  :line: 48
+- :test: test_whenLeftWheelGoesForward_thenWeSetTheCorrectEnablePin
+  :line: 53
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel
-  :line: 57
+- :test: test_whenLeftWheelGoesForward_thenWeSetTheVelocity
+  :line: 63
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel
-  :line: 67
+- :test: test_whenRightWheelGoesForward_thenWeSetTheCorrectDirectionPins
+  :line: 74
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel
-  :line: 84
+- :test: test_whenRightWheelGoesForward_thenWeSetTheCorrectEnablePin
+  :line: 92
   :message: ''
-- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel
-  :line: 97
+- :test: test_whenRigtWheelIsGoesForward_thenWeSetTheVelocity
+  :line: 106
   :message: ''
-- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel
-  :line: 107
+- :test: test_whenLeftWheelGoesBackward_thenWeSetTheCorrectDirectionPins
+  :line: 120
   :message: ''
-- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel
-  :line: 124
+- :test: test_whenRightWheelGoesBackward_thenWeSetTheCorrectDirectionPins
+  :line: 138
   :message: ''
 - :test: test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters
-  :line: 141
+  :line: 156
   :message: ''
 - :test: test_whenWheelsGoStraight_thenWeExitIfIsStopped
-  :line: 148
+  :line: 163
   :message: ''
-- :test: test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop
-  :line: 155
+- :test: test_WhenLeftWheelStops_thenWeSetVelocityToZero
+  :line: 174
+  :message: ''
+- :test: test_WhenLeftWheelStops_thenWeSetPin1ToLow
+  :line: 182
+  :message: ''
+- :test: test_WhenLeftWheelStops_thenWeSetPin2ToLow
+  :line: 190
+  :message: ''
+- :test: test_WhenLeftWheelStops_thenWeSetPinStandbyToLow
+  :line: 198
+  :message: ''
+- :test: test_WhenRightWheelStops_thenWeSetVelocityToZero
+  :line: 216
+  :message: ''
+- :test: test_WhenRightWheelStops_thenWeSetPin1ToLow
+  :line: 224
+  :message: ''
+- :test: test_WhenRightWheelStops_thenWeSetPin2ToLow
+  :line: 232
+  :message: ''
+- :test: test_WhenRightWheelStops_thenWeSetPinStandbyToLow
+  :line: 240
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 12
-  :passed: 12
+  :total: 19
+  :passed: 19
   :failed: 0
   :ignored: 0
 :stdout:
-- Wheel_Straight
-- "\tLoop"
-- "\t\tForward"
-- "\t\t\tGo Left"
-- Wheel_Straight
-- Wheel_Straight
-- Wheel_Straight
-- "\tLoop"
-- "\t\tForward"
-- "\t\t\tGo Left"
-- "\t\t\tGo Right"
-- Wheel_Straight
-- Wheel_Straight
-- Wheel_Straight
-- "\tLoop"
-- "\t\tReverse"
-- "\t\t\tGo Left"
-- Wheel_Straight
-- "\tLoop"
-- "\t\tReverse"
-- "\t\t\tGo Left"
-- "\t\t\tGo Right"
-- Wheel_Straight
 - Wheel_Straight
 - Wheel_Straight
 - ''

@@ -39,17 +39,24 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_whenWheelsAreInitialized_thenWeSetTheCorrectPins();
-extern void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel();
-extern void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel();
-extern void test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel();
-extern void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel();
-extern void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel();
-extern void test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel();
-extern void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel();
-extern void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel();
+extern void test_whenLeftWheelGoesForward_thenWeSetTheCorrectDirectionPins();
+extern void test_whenLeftWheelGoesForward_thenWeSetTheCorrectEnablePin();
+extern void test_whenLeftWheelGoesForward_thenWeSetTheVelocity();
+extern void test_whenRightWheelGoesForward_thenWeSetTheCorrectDirectionPins();
+extern void test_whenRightWheelGoesForward_thenWeSetTheCorrectEnablePin();
+extern void test_whenRigtWheelIsGoesForward_thenWeSetTheVelocity();
+extern void test_whenLeftWheelGoesBackward_thenWeSetTheCorrectDirectionPins();
+extern void test_whenRightWheelGoesBackward_thenWeSetTheCorrectDirectionPins();
 extern void test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters();
 extern void test_whenWheelsGoStraight_thenWeExitIfIsStopped();
-extern void test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop();
+extern void test_WhenLeftWheelStops_thenWeSetVelocityToZero();
+extern void test_WhenLeftWheelStops_thenWeSetPin1ToLow();
+extern void test_WhenLeftWheelStops_thenWeSetPin2ToLow();
+extern void test_WhenLeftWheelStops_thenWeSetPinStandbyToLow();
+extern void test_WhenRightWheelStops_thenWeSetVelocityToZero();
+extern void test_WhenRightWheelStops_thenWeSetPin1ToLow();
+extern void test_WhenRightWheelStops_thenWeSetPin2ToLow();
+extern void test_WhenRightWheelStops_thenWeSetPinStandbyToLow();
 
 
 /*=======Mock Management=====*/
@@ -91,18 +98,25 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_Wheel.c");
-  RUN_TEST(test_whenWheelsAreInitialized_thenWeSetTheCorrectPins, 25);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 31);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel, 48);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel, 57);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel, 67);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel, 84);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel, 97);
-  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 107);
-  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel, 124);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters, 141);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStopped, 148);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop, 155);
+  RUN_TEST(test_whenWheelsAreInitialized_thenWeSetTheCorrectPins, 27);
+  RUN_TEST(test_whenLeftWheelGoesForward_thenWeSetTheCorrectDirectionPins, 35);
+  RUN_TEST(test_whenLeftWheelGoesForward_thenWeSetTheCorrectEnablePin, 53);
+  RUN_TEST(test_whenLeftWheelGoesForward_thenWeSetTheVelocity, 63);
+  RUN_TEST(test_whenRightWheelGoesForward_thenWeSetTheCorrectDirectionPins, 74);
+  RUN_TEST(test_whenRightWheelGoesForward_thenWeSetTheCorrectEnablePin, 92);
+  RUN_TEST(test_whenRigtWheelIsGoesForward_thenWeSetTheVelocity, 106);
+  RUN_TEST(test_whenLeftWheelGoesBackward_thenWeSetTheCorrectDirectionPins, 120);
+  RUN_TEST(test_whenRightWheelGoesBackward_thenWeSetTheCorrectDirectionPins, 138);
+  RUN_TEST(test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters, 156);
+  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStopped, 163);
+  RUN_TEST(test_WhenLeftWheelStops_thenWeSetVelocityToZero, 174);
+  RUN_TEST(test_WhenLeftWheelStops_thenWeSetPin1ToLow, 182);
+  RUN_TEST(test_WhenLeftWheelStops_thenWeSetPin2ToLow, 190);
+  RUN_TEST(test_WhenLeftWheelStops_thenWeSetPinStandbyToLow, 198);
+  RUN_TEST(test_WhenRightWheelStops_thenWeSetVelocityToZero, 216);
+  RUN_TEST(test_WhenRightWheelStops_thenWeSetPin1ToLow, 224);
+  RUN_TEST(test_WhenRightWheelStops_thenWeSetPin2ToLow, 232);
+  RUN_TEST(test_WhenRightWheelStops_thenWeSetPinStandbyToLow, 240);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());
