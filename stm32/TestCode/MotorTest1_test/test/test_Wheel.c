@@ -11,14 +11,14 @@
 #include "cmsis_device.h"
 
 
-extern uint32_t left_wheel_counter;
-extern uint32_t right_wheel_counter;
-extern bool is_stopped;
-
-
 void setUp(void) {
-    is_stopped = false;
     RESET_FAKE(WheelEncoder_IsStepping);
+    RESET_FAKE(WheelEncoder_GetIsStopped);
+    RESET_FAKE(WheelEncoder_SetIsStopped);
+    RESET_FAKE(WheelEncoder_SetLeftWheelCounter);
+    RESET_FAKE(WheelEncoder_GetLeftWheelCounter);
+    RESET_FAKE(WheelEncoder_SetRightWheelCounter);
+    RESET_FAKE(WheelEncoder_GetRightWheelCounter);
     FFF_RESET_HISTORY();
 }
 
@@ -82,7 +82,6 @@ void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel() {
 }
 
 void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel() {
-    is_stopped = false;
     RESET_FAKE(WheelEncoder_IsStepping);
     bool counterReturnValues[2] = {true,false};
     SET_RETURN_SEQ(WheelEncoder_IsStepping, counterReturnValues, 2);
@@ -142,21 +141,25 @@ void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel() 
 void test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters() {
     Wheel_Straight(true, 100, 6);
 
-    TEST_ASSERT_TRUE(0 == left_wheel_counter);
-    TEST_ASSERT_TRUE(0 == right_wheel_counter);
+    TEST_ASSERT_TRUE(0 == WheelEncoder_SetLeftWheelCounter_fake.arg0_history[0]);
+    TEST_ASSERT_TRUE(0 == WheelEncoder_SetRightWheelCounter_fake.arg0_history[0]);
 }
 
 void test_whenWheelsGoStraight_thenWeExitIfIsStopped() {
-    is_stopped = true;
+    WheelEncoder_GetIsStopped_fake.return_val = true;
     Wheel_Straight(true, 100, 6);
 
     TEST_ASSERT_TRUE(0 == GPIO_AnalogWrite_fake.call_count);
 }
 
 void test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop() {
-//bth this test currently expected to fail
+    bool queuedReturnValues[2] = {false,true};
+    SET_RETURN_SEQ(WheelEncoder_GetIsStopped, queuedReturnValues, 2);
+    WheelEncoder_IsStepping_fake.return_val = true;
+
     Wheel_Straight(true, 100, 6);
 
-    TEST_ASSERT_TRUE(3 > GPIO_DigitalWrite_fake.call_count);
+    //TEST_ASSERT_TRUE(3 > GPIO_DigitalWrite_fake.call_count);
+    TEST_ASSERT_EQUAL_UINT(2,GPIO_DigitalWrite_fake.call_count);
 }
 

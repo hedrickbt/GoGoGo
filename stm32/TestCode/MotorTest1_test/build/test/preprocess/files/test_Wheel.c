@@ -19,21 +19,21 @@
 
 
 
-extern uint32_t left_wheel_counter;
-
-extern uint32_t right_wheel_counter;
-
-extern _Bool is_stopped;
-
-
-
-
-
 void setUp(void) {
 
-    is_stopped = 0;
-
     { WheelEncoder_IsStepping_reset(); };
+
+    { WheelEncoder_GetIsStopped_reset(); };
+
+    { WheelEncoder_SetIsStopped_reset(); };
+
+    { WheelEncoder_SetLeftWheelCounter_reset(); };
+
+    { WheelEncoder_GetLeftWheelCounter_reset(); };
+
+    { WheelEncoder_SetRightWheelCounter_reset(); };
+
+    { WheelEncoder_GetRightWheelCounter_reset(); };
 
     fff.call_history_idx = 0;;
 
@@ -161,8 +161,6 @@ void test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel() {
 
 void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel() {
 
-    is_stopped = 0;
-
     { WheelEncoder_IsStepping_reset(); };
 
     _Bool counterReturnValues[2] = {1,0};
@@ -175,13 +173,13 @@ void test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel() {
 
 
 
-    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(92)));};
+    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(91)));};
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(93)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(92)));};
 
-    if ((((uint16_t)0x8000) == GPIO_DigitalWrite_fake.arg1_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(94)));};
+    if ((((uint16_t)0x8000) == GPIO_DigitalWrite_fake.arg1_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(93)));};
 
-    if ((1 == GPIO_DigitalWrite_fake.arg2_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(95)));};
+    if ((1 == GPIO_DigitalWrite_fake.arg2_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(94)));};
 
 }
 
@@ -195,13 +193,13 @@ void test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel() {
 
 
 
-    if ((1 <= GPIO_AnalogWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(102)));};
+    if ((1 <= GPIO_AnalogWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(101)));};
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_AnalogWrite_fake.arg0_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(103)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_AnalogWrite_fake.arg0_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(102)));};
 
-    if ((((uint16_t)0x0002) == GPIO_AnalogWrite_fake.arg1_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(104)));};
+    if ((((uint16_t)0x0002) == GPIO_AnalogWrite_fake.arg1_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(103)));};
 
-    if ((velocity == GPIO_AnalogWrite_fake.arg2_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(105)));};
+    if ((velocity == GPIO_AnalogWrite_fake.arg2_history[1])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(104)));};
 
 }
 
@@ -219,23 +217,23 @@ void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel() {
 
 
 
-    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(114)));};
+    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(113)));};
 
 
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(116)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(115)));};
 
-    if ((((uint16_t)0x0400) == GPIO_DigitalWrite_fake.arg1_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(117)));};
+    if ((((uint16_t)0x0400) == GPIO_DigitalWrite_fake.arg1_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(116)));};
 
-    if ((0 == GPIO_DigitalWrite_fake.arg2_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(118)));};
+    if ((0 == GPIO_DigitalWrite_fake.arg2_history[2])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(117)));};
 
 
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(120)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(119)));};
 
-    if ((((uint16_t)0x0008) == GPIO_DigitalWrite_fake.arg1_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(121)));};
+    if ((((uint16_t)0x0008) == GPIO_DigitalWrite_fake.arg1_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(120)));};
 
-    if ((1 == GPIO_DigitalWrite_fake.arg2_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(122)));};
+    if ((1 == GPIO_DigitalWrite_fake.arg2_history[3])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(121)));};
 
 }
 
@@ -253,23 +251,23 @@ void test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel() 
 
 
 
-    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(131)));};
+    if ((2 <= GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(130)));};
 
 
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(133)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(132)));};
 
-    if ((((uint16_t)0x4000) == GPIO_DigitalWrite_fake.arg1_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(134)));};
+    if ((((uint16_t)0x4000) == GPIO_DigitalWrite_fake.arg1_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(133)));};
 
-    if ((0 == GPIO_DigitalWrite_fake.arg2_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(135)));};
+    if ((0 == GPIO_DigitalWrite_fake.arg2_history[4])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(134)));};
 
 
 
-    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(137)));};
+    if ((((GPIO_TypeDef *) ((((uint32_t)0x40000000) + 0x08000000) + 0x00000400)) == GPIO_DigitalWrite_fake.arg0_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(136)));};
 
-    if ((((uint16_t)0x2000) == GPIO_DigitalWrite_fake.arg1_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(138)));};
+    if ((((uint16_t)0x2000) == GPIO_DigitalWrite_fake.arg1_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(137)));};
 
-    if ((1 == GPIO_DigitalWrite_fake.arg2_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(139)));};
+    if ((1 == GPIO_DigitalWrite_fake.arg2_history[5])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(138)));};
 
 }
 
@@ -281,9 +279,9 @@ void test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters() {
 
 
 
-    if ((0 == left_wheel_counter)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(145)));};
+    if ((0 == WheelEncoder_SetLeftWheelCounter_fake.arg0_history[0])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(144)));};
 
-    if ((0 == right_wheel_counter)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(146)));};
+    if ((0 == WheelEncoder_SetRightWheelCounter_fake.arg0_history[0])) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(145)));};
 
 }
 
@@ -291,13 +289,13 @@ void test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters() {
 
 void test_whenWheelsGoStraight_thenWeExitIfIsStopped() {
 
-    is_stopped = 1;
+    WheelEncoder_GetIsStopped_fake.return_val = 1;
 
     Wheel_Straight(1, 100, 6);
 
 
 
-    if ((0 == GPIO_AnalogWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(153)));};
+    if ((0 == GPIO_AnalogWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(152)));};
 
 }
 
@@ -305,12 +303,20 @@ void test_whenWheelsGoStraight_thenWeExitIfIsStopped() {
 
 void test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop() {
 
+    _Bool queuedReturnValues[2] = {0,1};
+
+    WheelEncoder_GetIsStopped_fake.return_val_seq = queuedReturnValues; WheelEncoder_GetIsStopped_fake.return_val_seq_len = 2;;
+
+    WheelEncoder_IsStepping_fake.return_val = 1;
+
 
 
     Wheel_Straight(1, 100, 6);
 
 
 
-    if ((3 > GPIO_DigitalWrite_fake.call_count)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(160)));};
+
+
+    UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((GPIO_DigitalWrite_fake.call_count)), (((void *)0)), (UNITY_UINT)(163), UNITY_DISPLAY_STYLE_UINT);
 
 }

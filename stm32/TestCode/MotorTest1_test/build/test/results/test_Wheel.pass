@@ -1,0 +1,75 @@
+---
+:source:
+  :path: test
+  :file: test_Wheel.c
+:successes:
+- :test: test_whenWheelsAreInitialized_thenWeSetTheCorrectPins
+  :line: 25
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForLeftWheel
+  :line: 31
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForLeftWheel
+  :line: 48
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel
+  :line: 57
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel
+  :line: 67
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel
+  :line: 84
+  :message: ''
+- :test: test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel
+  :line: 97
+  :message: ''
+- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel
+  :line: 107
+  :message: ''
+- :test: test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel
+  :line: 124
+  :message: ''
+- :test: test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters
+  :line: 141
+  :message: ''
+- :test: test_whenWheelsGoStraight_thenWeExitIfIsStopped
+  :line: 148
+  :message: ''
+- :test: test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop
+  :line: 155
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 12
+  :passed: 12
+  :failed: 0
+  :ignored: 0
+:stdout:
+- Wheel_Straight
+- "\tLoop"
+- "\t\tForward"
+- "\t\t\tGo Left"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
+- "\tLoop"
+- "\t\tForward"
+- "\t\t\tGo Left"
+- "\t\t\tGo Right"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
+- "\tLoop"
+- "\t\tReverse"
+- "\t\t\tGo Left"
+- Wheel_Straight
+- "\tLoop"
+- "\t\tReverse"
+- "\t\t\tGo Left"
+- "\t\t\tGo Right"
+- Wheel_Straight
+- Wheel_Straight
+- Wheel_Straight
+- ''

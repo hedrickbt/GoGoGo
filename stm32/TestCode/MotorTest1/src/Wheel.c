@@ -3,9 +3,6 @@
 #include <stdio.h>
 
 
-volatile uint32_t left_wheel_counter = 0;
-volatile uint32_t right_wheel_counter = 0;
-volatile bool is_stopped = true;
 
 static void LeftWheel_Init(void);
 static void RightWheel_Init(void);
@@ -40,30 +37,30 @@ void EXTI4_15_IRQHandler(void) {
 	if ((EXTI->PR & EXTI_PR_PR9) != (uint32_t)0) { // line 9 aka pin 9
 		EXTI->PR = EXTI_PR_PR9;
 		//trace_print("pulse");
-		left_wheel_counter++;
+		WheelEncoder_SetLeftWheelCounter(WheelEncoder_GetLeftWheelCounter()+1);
 	}
 	if ((EXTI->PR & EXTI_PR_PR8) != (uint32_t)0) {
 		EXTI->PR = EXTI_PR_PR8;
 		//trace_print("pulse");
-		right_wheel_counter++;
+		WheelEncoder_SetRightWheelCounter(WheelEncoder_GetRightWheelCounter()+1);
 	}
 	if ((EXTI->PR & EXTI_PR_PR13) != (uint32_t)0) {
 		EXTI->PR = EXTI_PR_PR13;
 		//trace_print("pulse");
-		is_stopped = !is_stopped;
+		WheelEncoder_SetIsStopped(!WheelEncoder_GetIsStopped());
 	}
 	NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
 }
 
 void Wheel_TurnLeftWheel(bool forward, uint16_t velocity, uint32_t steps) {
-	if (is_stopped) return;
+	if (WheelEncoder_GetIsStopped()) return;
 
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
-	left_wheel_counter = 0;
+	WheelEncoder_SetLeftWheelCounter(0);
 	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
-	while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
-		if (is_stopped) break;
+	while (WheelEncoder_IsStepping(WheelEncoder_GetLeftWheelCounter(),steps)) {
+		if (WheelEncoder_GetIsStopped()) break;
 		if (forward) {
 			GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
 			GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
@@ -77,14 +74,14 @@ void Wheel_TurnLeftWheel(bool forward, uint16_t velocity, uint32_t steps) {
 }
 
 void Wheel_TurnRightWheel(bool forward, uint16_t velocity, uint32_t steps) {
-	if (is_stopped) return;
+	if (WheelEncoder_GetIsStopped()) return;
 
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
-	right_wheel_counter = 0;
+	WheelEncoder_SetRightWheelCounter(0);
 	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
-	while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
-		if (is_stopped) break;
+	while (WheelEncoder_IsStepping(WheelEncoder_GetRightWheelCounter(),steps)) {
+		if (WheelEncoder_GetIsStopped()) break;
 		if (forward) {
 			GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
 			GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
@@ -99,21 +96,22 @@ void Wheel_TurnRightWheel(bool forward, uint16_t velocity, uint32_t steps) {
 
 void Wheel_Straight(bool forward, uint16_t velocity, uint32_t steps) {
 	printf("Wheel_Straight\n");
-	if (is_stopped) return;
+	if (WheelEncoder_GetIsStopped()) return;
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
 	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
 
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
 
-	left_wheel_counter = 0;
-	right_wheel_counter = 0;
+	WheelEncoder_SetLeftWheelCounter(0);
+	WheelEncoder_SetRightWheelCounter(0);
 
-	while ((WheelEncoder_IsStepping(left_wheel_counter,steps)) &&  (WheelEncoder_IsStepping(right_wheel_counter,steps))) {
+	while ((WheelEncoder_IsStepping(WheelEncoder_GetLeftWheelCounter(),steps)) &&  (WheelEncoder_IsStepping(WheelEncoder_GetRightWheelCounter(),steps))) {
+		if (WheelEncoder_GetIsStopped()) return;
 		printf("\tLoop\n");
 		if (forward) {
 			printf("\t\tForward\n");
-			if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+			if (WheelEncoder_IsStepping(WheelEncoder_GetLeftWheelCounter(),steps)) {
 				printf("\t\t\tGo Left\n");
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
@@ -121,7 +119,7 @@ void Wheel_Straight(bool forward, uint16_t velocity, uint32_t steps) {
 				LeftWheel_Init();
 			}
 
-			if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+			if (WheelEncoder_IsStepping(WheelEncoder_GetRightWheelCounter(),steps)) {
 				printf("\t\t\tGo Right\n");
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
@@ -130,7 +128,7 @@ void Wheel_Straight(bool forward, uint16_t velocity, uint32_t steps) {
 			}
 		} else {
 			printf("\t\tReverse\n");
-			if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+			if (WheelEncoder_IsStepping(WheelEncoder_GetLeftWheelCounter(),steps)) {
 				printf("\t\t\tGo Left\n");
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
@@ -138,7 +136,7 @@ void Wheel_Straight(bool forward, uint16_t velocity, uint32_t steps) {
 				LeftWheel_Init();
 			}
 
-			if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+			if (WheelEncoder_IsStepping(WheelEncoder_GetRightWheelCounter(),steps)) {
 				printf("\t\t\tGo Right\n");
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
 				GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);

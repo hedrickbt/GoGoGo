@@ -1,0 +1,8 @@
+#include "WheelEncoder.h"
+
+volatile bool is_stopped = true;
+
+bool WheelEncoder_IsStepping(uint32_t current_step, uint32_t steps){
+	return current_step < steps;
+}
+

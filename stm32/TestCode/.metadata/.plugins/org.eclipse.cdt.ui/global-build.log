@@ -739,3 +739,553 @@ arm-none-eabi-size --format=berkeley "MotorTest1.elf"
    5420	     80	    276	   5776	   1690	MotorTest1.elf
 Finished building: MotorTest1.siz
  
+21:32:15 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'EXTI4_15_IRQHandler':
+../src/Wheel.c:52:3: error: 'is_stopped' undeclared (first use in this function)
+   is_stopped = !is_stopped;
+   ^
+../src/Wheel.c:52:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:58:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:79:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:101:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+make: *** [src/Wheel.o] Error 1
+21:33:17 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'EXTI4_15_IRQHandler':
+../src/Wheel.c:52:3: error: 'is_stopped' undeclared (first use in this function)
+   is_stopped = !is_stopped;
+   ^
+../src/Wheel.c:52:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:58:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:79:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:101:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+make: *** [src/Wheel.o] Error 1
+21:35:18 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'EXTI4_15_IRQHandler':
+../src/Wheel.c:52:3: error: 'is_stopped' undeclared (first use in this function)
+   is_stopped = !is_stopped;
+   ^
+../src/Wheel.c:52:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:58:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:79:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:101:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+make: *** [src/Wheel.o] Error 1
+21:37:25 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'EXTI4_15_IRQHandler':
+../src/Wheel.c:52:3: error: 'is_stopped' undeclared (first use in this function)
+   is_stopped = !is_stopped;
+   ^
+../src/Wheel.c:52:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:58:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:79:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:101:6: error: 'is_stopped' undeclared (first use in this function)
+  if (is_stopped) return;
+      ^
+make: *** [src/Wheel.o] Error 1
+21:37:35 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+Finished building: ../src/Wheel.c
+ 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:9:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:9:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:13:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+21:41:39 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:9:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:9:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:13:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+22:18:09 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+Finished building: ../src/Wheel.c
+ 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c:3:8: warning: type defaults to 'int' in declaration of 'is_stopped' [-Wimplicit-int]
+ extern is_stopped;
+        ^
+Finished building: ../src/WheelEncoder.c
+ 
+Building target: MotorTest1.elf
+Invoking: Cross ARM C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"MotorTest1.map" --specs=nano.specs -o "MotorTest1.elf"  ./system/src/stm32f0-stdperiph/stm32f0xx_adc.o ./system/src/stm32f0-stdperiph/stm32f0xx_can.o ./system/src/stm32f0-stdperiph/stm32f0xx_cec.o ./system/src/stm32f0-stdperiph/stm32f0xx_comp.o ./system/src/stm32f0-stdperiph/stm32f0xx_crc.o ./system/src/stm32f0-stdperiph/stm32f0xx_crs.o ./system/src/stm32f0-stdperiph/stm32f0xx_dac.o ./system/src/stm32f0-stdperiph/stm32f0xx_dbgmcu.o ./system/src/stm32f0-stdperiph/stm32f0xx_dma.o ./system/src/stm32f0-stdperiph/stm32f0xx_exti.o ./system/src/stm32f0-stdperiph/stm32f0xx_flash.o ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o ./system/src/stm32f0-stdperiph/stm32f0xx_i2c.o ./system/src/stm32f0-stdperiph/stm32f0xx_iwdg.o ./system/src/stm32f0-stdperiph/stm32f0xx_misc.o ./system/src/stm32f0-stdperiph/stm32f0xx_pwr.o ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o ./system/src/stm32f0-stdperiph/stm32f0xx_rtc.o ./system/src/stm32f0-stdperiph/stm32f0xx_spi.o ./system/src/stm32f0-stdperiph/stm32f0xx_syscfg.o ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o ./system/src/stm32f0-stdperiph/stm32f0xx_usart.o ./system/src/stm32f0-stdperiph/stm32f0xx_wwdg.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f0xx.o ./system/src/cmsis/vectors_stm32f0xx.o  ./src/GPIO.o ./src/GPIO_conf.o ./src/Wheel.o ./src/WheelEncoder.o ./src/_write.o ./src/main.o   
+Finished building target: MotorTest1.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "MotorTest1.elf"  "MotorTest1.hex"
+Finished building: MotorTest1.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "MotorTest1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5420	     80	    276	   5776	   1690	MotorTest1.elf
+Finished building: MotorTest1.siz
+ 
+22:18:16 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:10:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:14:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+22:18:20 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c:3:8: warning: type defaults to 'int' in declaration of 'is_stopped' [-Wimplicit-int]
+ extern is_stopped;
+        ^
+Finished building: ../src/WheelEncoder.c
+ 
+Building target: MotorTest1.elf
+Invoking: Cross ARM C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"MotorTest1.map" --specs=nano.specs -o "MotorTest1.elf"  ./system/src/stm32f0-stdperiph/stm32f0xx_adc.o ./system/src/stm32f0-stdperiph/stm32f0xx_can.o ./system/src/stm32f0-stdperiph/stm32f0xx_cec.o ./system/src/stm32f0-stdperiph/stm32f0xx_comp.o ./system/src/stm32f0-stdperiph/stm32f0xx_crc.o ./system/src/stm32f0-stdperiph/stm32f0xx_crs.o ./system/src/stm32f0-stdperiph/stm32f0xx_dac.o ./system/src/stm32f0-stdperiph/stm32f0xx_dbgmcu.o ./system/src/stm32f0-stdperiph/stm32f0xx_dma.o ./system/src/stm32f0-stdperiph/stm32f0xx_exti.o ./system/src/stm32f0-stdperiph/stm32f0xx_flash.o ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o ./system/src/stm32f0-stdperiph/stm32f0xx_i2c.o ./system/src/stm32f0-stdperiph/stm32f0xx_iwdg.o ./system/src/stm32f0-stdperiph/stm32f0xx_misc.o ./system/src/stm32f0-stdperiph/stm32f0xx_pwr.o ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o ./system/src/stm32f0-stdperiph/stm32f0xx_rtc.o ./system/src/stm32f0-stdperiph/stm32f0xx_spi.o ./system/src/stm32f0-stdperiph/stm32f0xx_syscfg.o ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o ./system/src/stm32f0-stdperiph/stm32f0xx_usart.o ./system/src/stm32f0-stdperiph/stm32f0xx_wwdg.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f0xx.o ./system/src/cmsis/vectors_stm32f0xx.o  ./src/GPIO.o ./src/GPIO_conf.o ./src/Wheel.o ./src/WheelEncoder.o ./src/_write.o ./src/main.o   
+Finished building target: MotorTest1.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "MotorTest1.elf"  "MotorTest1.hex"
+Finished building: MotorTest1.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "MotorTest1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5420	     80	    276	   5776	   1690	MotorTest1.elf
+Finished building: MotorTest1.siz
+ 
+22:19:03 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:10:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:14:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+22:31:19 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:10:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:14:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+22:32:38 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+Finished building: ../src/Wheel.c
+ 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:10:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:14:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+22:37:23 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+Finished building: ../src/Wheel.c
+ 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:10:9: error: 'is_stopped' undeclared (first use in this function)
+  return is_stopped;
+         ^
+../src/WheelEncoder.c:10:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/WheelEncoder.c: In function 'WheelEncoder_SetIsStopped':
+../src/WheelEncoder.c:14:2: error: 'is_stopped' undeclared (first use in this function)
+  is_stopped = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetLeftWheelCounter':
+../src/WheelEncoder.c:18:9: error: 'left_wheel_counter' undeclared (first use in this function)
+  return left_wheel_counter;
+         ^
+../src/WheelEncoder.c: In function 'WheelEncoder_SetLeftWheelCounter':
+../src/WheelEncoder.c:22:2: error: 'left_wheel_counter' undeclared (first use in this function)
+  left_wheel_counter = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetRightWheelCounter':
+../src/WheelEncoder.c:26:9: error: 'right_wheel_counter' undeclared (first use in this function)
+  return right_wheel_counter;
+         ^
+../src/WheelEncoder.c: In function 'WheelEncoder_SetRightWheelCounter':
+../src/WheelEncoder.c:30:2: error: 'right_wheel_counter' undeclared (first use in this function)
+  right_wheel_counter = value;
+  ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetIsStopped':
+../src/WheelEncoder.c:11:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetLeftWheelCounter':
+../src/WheelEncoder.c:19:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/WheelEncoder.c: In function 'WheelEncoder_GetRightWheelCounter':
+../src/WheelEncoder.c:27:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/WheelEncoder.o] Error 1
+20:50:37 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'EXTI4_15_IRQHandler':
+../src/Wheel.c:40:3: error: 'left_wheel_counter' undeclared (first use in this function)
+   left_wheel_counter++;
+   ^
+../src/Wheel.c:40:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c:45:3: error: 'right_wheel_counter' undeclared (first use in this function)
+   right_wheel_counter++;
+   ^
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:59:2: error: 'left_wheel_counter' undeclared (first use in this function)
+  left_wheel_counter = 0;
+  ^
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:80:2: error: 'right_wheel_counter' undeclared (first use in this function)
+  right_wheel_counter = 0;
+  ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:106:2: error: 'left_wheel_counter' undeclared (first use in this function)
+  left_wheel_counter = 0;
+  ^
+../src/Wheel.c:107:2: error: 'right_wheel_counter' undeclared (first use in this function)
+  right_wheel_counter = 0;
+  ^
+make: *** [src/Wheel.o] Error 1
+20:53:35 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:62:33: error: 'left_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:62:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:106:2: error: 'left_wheel_counter' undeclared (first use in this function)
+  left_wheel_counter = 0;
+  ^
+../src/Wheel.c:107:2: error: 'right_wheel_counter' undeclared (first use in this function)
+  right_wheel_counter = 0;
+  ^
+make: *** [src/Wheel.o] Error 1
+20:53:53 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:62:33: error: 'left_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:62:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:109:34: error: 'left_wheel_counter' undeclared (first use in this function)
+  while ((WheelEncoder_IsStepping(left_wheel_counter,steps)) &&  (WheelEncoder_IsStepping(right_wheel_counter,steps))) {
+                                  ^
+../src/Wheel.c:109:90: error: 'right_wheel_counter' undeclared (first use in this function)
+  while ((WheelEncoder_IsStepping(left_wheel_counter,steps)) &&  (WheelEncoder_IsStepping(right_wheel_counter,steps))) {
+                                                                                          ^
+make: *** [src/Wheel.o] Error 1
+20:54:26 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:62:33: error: 'left_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:62:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:114:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:122:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:54:42 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:62:33: error: 'left_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:62:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:114:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:122:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:54:57 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnLeftWheel':
+../src/Wheel.c:62:33: error: 'left_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:62:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:122:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:131:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:55:10 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: error: 'right_wheel_counter' undeclared (first use in this function)
+  while (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                 ^
+../src/Wheel.c:83:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:122:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:131:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:55:28 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_TurnRightWheel':
+../src/Wheel.c:83:33: warning: passing argument 1 of 'WheelEncoder_IsStepping' makes integer from pointer without a cast [-Wint-conversion]
+  while (WheelEncoder_IsStepping(WheelEncoder_GetRightWheelCounter,steps)) {
+                                 ^
+In file included from ../src/Wheel.c:1:0:
+../include/WheelEncoder.h:7:6: note: expected 'uint32_t {aka long unsigned int}' but argument is of type 'uint32_t (*)(void) {aka long unsigned int (*)(void)}'
+ bool WheelEncoder_IsStepping(uint32_t current_step, uint32_t steps);
+      ^
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:122:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:122:32: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c:131:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:55:51 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:131:32: error: 'left_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(left_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:131:32: note: each undeclared identifier is reported only once for each function it appears in
+../src/Wheel.c:139:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+make: *** [src/Wheel.o] Error 1
+20:56:00 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+../src/Wheel.c: In function 'Wheel_Straight':
+../src/Wheel.c:139:32: error: 'right_wheel_counter' undeclared (first use in this function)
+    if (WheelEncoder_IsStepping(right_wheel_counter,steps)) {
+                                ^
+../src/Wheel.c:139:32: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/Wheel.o] Error 1
+20:56:13 **** Incremental Build of configuration Debug for project MotorTest1 ****
+make all 
+Building file: ../src/Wheel.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/Wheel.d" -MT"src/Wheel.o" -c -o "src/Wheel.o" "../src/Wheel.c"
+Finished building: ../src/Wheel.c
+ 
+Building file: ../src/WheelEncoder.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DSTM32F030 -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f0-stdperiph" -std=gnu11 -MMD -MP -MF"src/WheelEncoder.d" -MT"src/WheelEncoder.o" -c -o "src/WheelEncoder.o" "../src/WheelEncoder.c"
+Finished building: ../src/WheelEncoder.c
+ 
+Building target: MotorTest1.elf
+Invoking: Cross ARM C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m0 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"MotorTest1.map" --specs=nano.specs -o "MotorTest1.elf"  ./system/src/stm32f0-stdperiph/stm32f0xx_adc.o ./system/src/stm32f0-stdperiph/stm32f0xx_can.o ./system/src/stm32f0-stdperiph/stm32f0xx_cec.o ./system/src/stm32f0-stdperiph/stm32f0xx_comp.o ./system/src/stm32f0-stdperiph/stm32f0xx_crc.o ./system/src/stm32f0-stdperiph/stm32f0xx_crs.o ./system/src/stm32f0-stdperiph/stm32f0xx_dac.o ./system/src/stm32f0-stdperiph/stm32f0xx_dbgmcu.o ./system/src/stm32f0-stdperiph/stm32f0xx_dma.o ./system/src/stm32f0-stdperiph/stm32f0xx_exti.o ./system/src/stm32f0-stdperiph/stm32f0xx_flash.o ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o ./system/src/stm32f0-stdperiph/stm32f0xx_i2c.o ./system/src/stm32f0-stdperiph/stm32f0xx_iwdg.o ./system/src/stm32f0-stdperiph/stm32f0xx_misc.o ./system/src/stm32f0-stdperiph/stm32f0xx_pwr.o ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o ./system/src/stm32f0-stdperiph/stm32f0xx_rtc.o ./system/src/stm32f0-stdperiph/stm32f0xx_spi.o ./system/src/stm32f0-stdperiph/stm32f0xx_syscfg.o ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o ./system/src/stm32f0-stdperiph/stm32f0xx_usart.o ./system/src/stm32f0-stdperiph/stm32f0xx_wwdg.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f0xx.o ./system/src/cmsis/vectors_stm32f0xx.o  ./src/GPIO.o ./src/GPIO_conf.o ./src/Wheel.o ./src/WheelEncoder.o ./src/_write.o ./src/main.o   
+Finished building target: MotorTest1.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "MotorTest1.elf"  "MotorTest1.hex"
+Finished building: MotorTest1.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "MotorTest1.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5476	     80	    276	   5832	   16c8	MotorTest1.elf
+Finished building: MotorTest1.siz
+ 

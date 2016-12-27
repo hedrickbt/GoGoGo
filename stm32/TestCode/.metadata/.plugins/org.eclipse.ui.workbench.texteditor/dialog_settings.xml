@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="329" key="DIALOG_WIDTH"/>
+		<item value="309" key="DIALOG_WIDTH"/>
 		<item value="59" key="DIALOG_Y_ORIGIN"/>
-		<item value="1215" key="DIALOG_X_ORIGIN"/>
-		<item value="472" key="DIALOG_HEIGHT"/>
+		<item value="482" key="DIALOG_X_ORIGIN"/>
+		<item value="452" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="WheelEncoder_IsStepping" key="selection"/>
+		<item value="steps" key="selection"/>
 		<list key="findhistory">
-			<item value="Wheel_IsStepping"/>
+			<item value="steps"/>
+			<item value="step"/>
 			<item value="is_stopped"/>
+			<item value="is_stop"/>
+			<item value="Wheel_IsStepping"/>
 			<item value="&lt; step"/>
 			<item value="wheel_set"/>
 			<item value="right_wheel_counter"/>
-			<item value="value"/>
-			<item value="LeftWheel_Init"/>
-			<item value="left_wheel_counter"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WheelEncoder_IsStepping"/>

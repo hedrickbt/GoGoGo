@@ -97,12 +97,12 @@ int main(void)
   RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForLeftWheel, 57);
   RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectDirectionPinsForRightWheel, 67);
   RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheCorrectEnablePinForRightWheel, 84);
-  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel, 98);
-  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 108);
-  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel, 125);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters, 142);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStopped, 149);
-  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop, 156);
+  RUN_TEST(test_whenWheelIsGoForward_thenWeSetTheVelocityForRightWheel, 97);
+  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForLeftWheel, 107);
+  RUN_TEST(test_whenWheelIsGoBackward_thenWeSetTheCorrectDirectionPinsForRightWheel, 124);
+  RUN_TEST(test_whenWheelsGoStraight_thenWeInitializeTheWheelStepCounters, 141);
+  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStopped, 148);
+  RUN_TEST(test_whenWheelsGoStraight_thenWeExitIfIsStoppedInStepLoop, 155);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());
