@@ -1,0 +1,28 @@
+---
+:source:
+  :path: test
+  :file: test_Drivetrain.c
+:successes:
+- :test: test_whenInitializing_thenWheelsAreStopped
+  :line: 20
+  :message: ''
+- :test: test_whenFullStop_thenWheelsAreStoppedImmediately
+  :line: 29
+  :message: ''
+- :test: test_whenMovingLeft_thenMaximumTurnNoMoreThanNegative90
+  :line: 38
+  :message: ''
+- :test: test_whenMovingRight_thenMaximumTurnNoMoreThan90
+  :line: 44
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 4
+  :passed: 4
+  :failed: 0
+  :ignored: 0
+:stdout:
+- 'Drivetrain_Move: -100, 100 '
+- 'Drivetrain_Move: 100, 100 '
+- ''
