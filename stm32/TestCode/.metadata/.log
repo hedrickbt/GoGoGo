@@ -4275,3 +4275,81 @@ Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4
 	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:170)
 	at com.google.gson.Gson.fromJson(Gson.java:803)
 	... 8 more
+!SESSION 2017-01-07 19:32:49.845 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2017-01-07 19:33:15.961
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10
+	at com.google.gson.Gson.fromJson(Gson.java:818)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:97)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:106)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:75)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:98)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1505)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:519)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1209)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:170)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	... 8 more
+!SESSION 2017-01-07 21:29:41.352 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2017-01-07 21:30:13.333
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10
+	at com.google.gson.Gson.fromJson(Gson.java:818)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:97)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:106)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:75)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:98)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1505)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:519)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1209)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:170)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	... 8 more
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-01-07 21:37:28.592
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd console.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-01-07 21:40:56.860
+!MESSAGE Debug session 'MotorTest1 Debug' already started. Terminate the first one before restarting.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2017-01-07 21:52:21.670
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.mi.service.MIRunControl$9@1c35af2e): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Context cannot be suspended. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2017-01-07 21:52:21.670
+!MESSAGE Context cannot be suspended.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-01-07 22:22:10.043
+!MESSAGE Debug session 'MotorTest1 Debug' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-01-07 22:27:55.239
+!MESSAGE Debug session 'MotorTest1 Debug' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag 4 0 2017-01-07 22:30:14.365
+!MESSAGE Debug session 'MotorTest1 Debug' already started. Terminate the first one before restarting.

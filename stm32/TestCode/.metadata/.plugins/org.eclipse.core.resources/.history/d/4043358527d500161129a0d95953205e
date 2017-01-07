@@ -26,6 +26,8 @@ void Wheel_Initialize(void) {
 	// Interface
 	GPIO_conf_InputPin(GPIOC, GPIO_Pin_13); 						// start/stop button
 	GPIO_conf_InterruptPin(GPIOC, GPIO_Pin_13);  					// start/stop button
+
+	WheelEncoder_SetIsStopped(false);
 }
 
 
@@ -61,17 +63,11 @@ void Wheel_TurnLeftWheel(bool forward, uint16_t velocity) {
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
 
 	if (forward) {
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
-
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
-	} else {
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
-
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
+	} else {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
 	}
 }
 
@@ -87,16 +83,11 @@ void Wheel_TurnRightWheel(bool forward, uint16_t velocity) {
 	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
 
 	if (forward) {
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
-		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
-
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
-	} else {
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
 		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
-		//GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
+	} else {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
 	}
 }
 

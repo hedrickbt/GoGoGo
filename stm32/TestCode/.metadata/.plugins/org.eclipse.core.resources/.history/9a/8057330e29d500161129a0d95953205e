@@ -20,8 +20,6 @@ void main(int argc, char* argv[]) {
 
 	while (1) {
 		if (!WheelEncoder_GetIsStopped()) {
-			DelayTimer_Sleep(TIMER_FREQUENCY_HZ * 2); //2 seconds
-
 			WheelTest_StraightForward();
 			DelayTimer_Sleep(TIMER_FREQUENCY_HZ * 8); //8 seconds
 

@@ -26,6 +26,8 @@ void Wheel_Initialize(void) {
 	// Interface
 	GPIO_conf_InputPin(GPIOC, GPIO_Pin_13); 						// start/stop button
 	GPIO_conf_InterruptPin(GPIOC, GPIO_Pin_13);  					// start/stop button
+
+	WheelEncoder_SetIsStopped(false);
 }
 
 

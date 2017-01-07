@@ -7,11 +7,6 @@
 
 #include "DelayTimer.h"
 
-// Forward declarations.
-
-void DelayTimer_Tick (void);
-
-
 volatile uint32_t DelayTimer_DelayCount;
 
 void DelayTimer_Initialize(void){
@@ -30,6 +25,6 @@ void DelayTimer_Tick(void) {
 	}
 }
 
-void SysTick_Handler(void) {
+void Systick_Handler(void) {
 	DelayTimer_Tick();
 }
