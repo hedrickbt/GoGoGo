@@ -1,6 +1,6 @@
 #include "WheelEncoder.h"
 #include "Wheel.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 
 
@@ -50,7 +50,7 @@ void EXTI4_15_IRQHandler(void) {
 }
 
 void Wheel_TurnLeftWheel(bool forward, uint16_t velocity) {
-	//printf("Wheel_TurnLeftWheel: %d, %d \n", forward, velocity);
+	////printf("Wheel_TurnLeftWheel: %d, %d \n", forward, velocity);
 	if (WheelEncoder_GetIsStopped()) {
 		Wheel_StopLeftWheel();
 		return;
@@ -70,7 +70,7 @@ void Wheel_TurnLeftWheel(bool forward, uint16_t velocity) {
 }
 
 void Wheel_TurnRightWheel(bool forward, uint16_t velocity) {
-	//printf("Wheel_TurnRightWheel: %d, %d \n", forward, velocity);
+	////printf("Wheel_TurnRightWheel: %d, %d \n", forward, velocity);
 	if (WheelEncoder_GetIsStopped()) {
 		Wheel_StopRightWheel();
 		return;
@@ -90,7 +90,7 @@ void Wheel_TurnRightWheel(bool forward, uint16_t velocity) {
 }
 
 void Wheel_Straight(bool forward, uint16_t velocity) {
-	printf("Wheel_Straight: %d\n", velocity);
+	//printf("Wheel_Straight: %d\n", velocity);
 	if (WheelEncoder_GetIsStopped()) {
 		Wheel_StopLeftWheel();
 		Wheel_StopRightWheel();

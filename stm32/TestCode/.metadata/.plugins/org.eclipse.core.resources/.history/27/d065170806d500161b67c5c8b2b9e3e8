@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "diag/Trace.h"
+
+#include "WheelTest.h"
+#include "DelayTimer.h"
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wmissing-declarations"
+#pragma GCC diagnostic ignored "-Wreturn-type"
+
+
+void main(int argc, char* argv[]) {
+	//Wheel_Initialize();
+	DelayTimer_Initialize();
+	Drivetrain_Initialize();
+
+	while (1) {
+		WheelTest_FigureEight();
+		DelayTimer_
+//		Wheel_TurnLeftWheel(true, 50);
+//		//left_wheel(true, 50, 100);
+//		//delay();
+//		//left_wheel(false, 100, 10);
+//		//left_wheel(false, 100, 5);
+//
+//		//delay();
+
+//		Wheel_TurnRightWheel(true, 50);
+//		//left_wheel(true, 50, 100);
+//		delay();
+//		//left_wheel(false, 100, 10);
+//		//right_wheel(false, 100, 5);
+	}
+}
+
+#pragma GCC diagnostic pop

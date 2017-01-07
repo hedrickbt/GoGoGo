@@ -1,0 +1,17 @@
+#ifndef INCLUDE_DELAYTIMER_H_
+#define INCLUDE_DELAYTIMER_H_
+
+#include "cmsis_device.h"
+#include <stdint.h>
+
+#define TIMER_FREQUENCY_HZ (1000u)
+
+extern volatile uint32_t DelayTimer_DelayCount;
+
+extern void DelayTimer_Init(void);
+extern void DelayTimer_Sleep(uint32_t ticks);
+
+
+
+
+#endif /* INCLUDE_DELAYTIMER_H_ */

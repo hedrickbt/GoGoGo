@@ -1,7 +1,7 @@
 #include "Drivetrain.h"
 #include "Wheel.h"
 #include <assert.h>
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -10,6 +10,7 @@ volatile int8_t robot_direction = 0;
 volatile int16_t robot_velocity = 0;
 
 void Drivetrain_Initialize(void){
+	Wheel_Initialize();
 	Wheel_StopLeftWheel();
 	Wheel_StopRightWheel();
 	robot_direction = 0;
@@ -40,7 +41,7 @@ int8_t Drivetrain_GetVelocity(void) {
  * Direction = 0 Straight
  */
 void Drivetrain_Move(int8_t direction, int16_t velocity) {
-	printf("Drivetrain_Move: %d, %d \n", direction, velocity);
+	//printf("Drivetrain_Move: %d, %d \n", direction, velocity);
 
 	if (direction < -90) {
 		robot_direction = -90;
