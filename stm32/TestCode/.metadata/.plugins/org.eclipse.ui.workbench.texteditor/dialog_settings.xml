@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="309" key="DIALOG_WIDTH"/>
-		<item value="59" key="DIALOG_Y_ORIGIN"/>
-		<item value="452" key="DIALOG_HEIGHT"/>
-		<item value="482" key="DIALOG_X_ORIGIN"/>
+		<item value="61" key="DIALOG_Y_ORIGIN"/>
+		<item value="921" key="DIALOG_X_ORIGIN"/>
+		<item value="424" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="#include &lt;stdint.h&gt;" key="selection"/>
 		<list key="findhistory">
+			<item value="printf"/>
+			<item value="print"/>
 			<item value="break"/>
 			<item value="init"/>
 			<item value="steps"/>
 			<item value="step"/>
 			<item value="is_stopped"/>
 			<item value="is_stop"/>
-			<item value="Wheel_IsStepping"/>
-			<item value="&lt; step"/>
 		</list>
 		<list key="replacehistory">
 			<item value="WheelEncoder_IsStepping"/>

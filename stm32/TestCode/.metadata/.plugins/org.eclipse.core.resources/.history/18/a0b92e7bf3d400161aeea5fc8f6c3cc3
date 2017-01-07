@@ -1,0 +1,63 @@
+#include "Drivetrain.h"
+#include "Wheel.h"
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+volatile int8_t robot_direction = 0;
+volatile int16_t robot_velocity = 0;
+
+void Drivetrain_Initialize(void){
+	Wheel_StopLeftWheel();
+	Wheel_StopRightWheel();
+	robot_direction = 0;
+	robot_velocity = 0;
+}
+
+void Drivetrain_FullStop(void) {
+	Wheel_StopLeftWheel();
+	Wheel_StopRightWheel();
+	robot_direction = 0;
+	robot_velocity = 0;
+}
+
+int8_t Drivetrain_GetDirection(void) {
+	return robot_direction;
+}
+
+int8_t Drivetrain_GetVelocity(void) {
+	return robot_velocity;
+}
+
+void Drivetrain_Move(int8_t direction, int16_t velocity) {
+	printf("Drivetrain_Move: %d, %d \n", direction, velocity);
+
+	if (direction < -90) {
+		robot_direction = -90;
+	} else if  (direction > 90) {
+		robot_direction = 90;
+	} else {
+		robot_direction = direction;
+	}
+
+	if (velocity < -255) {
+		robot_velocity = -255;
+	} else if (velocity > 255) {
+		robot_velocity = 255;
+	} else {
+		robot_velocity = velocity;
+	}
+
+	/*
+	 * If direction =   0, LV=velocity,  RV=velocity  Straight
+	 * If direction = -90, LV=0,         RV=velocity  Full Left
+	 * If direction = -90, LV=velocity,  RV=0    	  Full Right
+	 * Otherwise wheel velocity of turning wheel = (1/abs(direction)) * velocity
+	 */
+
+	if (direction == 90) {
+		Wheel_TurnRightWheel(true, 0);
+		Wheel_TurnLeftWheel(true, abs(direction)/90 * velocity);
+	}
+}

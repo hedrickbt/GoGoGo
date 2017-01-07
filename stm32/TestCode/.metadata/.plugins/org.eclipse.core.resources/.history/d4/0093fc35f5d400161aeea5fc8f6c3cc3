@@ -1,0 +1,119 @@
+#include "WheelEncoder.h"
+#include "Wheel.h"
+#include <stdio.h>
+
+
+
+void Wheel_Initialize(void) {
+	// Left Wheel
+	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_3); 						// standby
+	//GPIO_conf_OutputPin(GPIOA, GPIO_Pin_8); 						// standby bth test
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_5); 						// standby
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_10); 						// in1
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_3); 						// in2
+	GPIO_conf_InputPin(GPIOB, GPIO_Pin_9); 							// decoder
+	GPIO_conf_PwmPin(GPIOB, GPIO_Pin_4, GPIO_PinSource4); 			// pwm
+	GPIO_conf_InterruptPin(GPIOB, GPIO_Pin_9);  					// decoder interrupt
+
+	// Right Wheel
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_15); 						// standby
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_14); 						// in1
+	GPIO_conf_OutputPin(GPIOB, GPIO_Pin_13); 						// in2
+	GPIO_conf_InputPin(GPIOB, GPIO_Pin_8); 							// decoder
+	GPIO_conf_PwmPin(GPIOB, GPIO_Pin_1, GPIO_PinSource1); 			// pwm
+	GPIO_conf_InterruptPin(GPIOB, GPIO_Pin_8);  					// decoder interrupt
+
+	// Interface
+	GPIO_conf_InputPin(GPIOC, GPIO_Pin_13); 						// start/stop button
+	GPIO_conf_InterruptPin(GPIOC, GPIO_Pin_13);  					// start/stop button
+}
+
+
+void EXTI4_15_IRQHandler(void) {
+	// we really shouldn't clear the pending IRQ until both checks have run
+	if ((EXTI->PR & EXTI_PR_PR9) != (uint32_t)0) { // line 9 aka pin 9
+		EXTI->PR = EXTI_PR_PR9;
+		//trace_print("pulse");
+		WheelEncoder_SetLeftWheelCounter(WheelEncoder_GetLeftWheelCounter()+1);
+	}
+	if ((EXTI->PR & EXTI_PR_PR8) != (uint32_t)0) {
+		EXTI->PR = EXTI_PR_PR8;
+		//trace_print("pulse");
+		WheelEncoder_SetRightWheelCounter(WheelEncoder_GetRightWheelCounter()+1);
+	}
+	if ((EXTI->PR & EXTI_PR_PR13) != (uint32_t)0) {
+		EXTI->PR = EXTI_PR_PR13;
+		//trace_print("pulse");
+		WheelEncoder_SetIsStopped(!WheelEncoder_GetIsStopped());
+	}
+	NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
+}
+
+void Wheel_TurnLeftWheel(bool forward, uint16_t velocity) {
+	printf("Wheel_TurnLeftWheel: %d, %d \n", forward, velocity);
+	if (WheelEncoder_GetIsStopped()) {
+		Wheel_StopLeftWheel();
+		return;
+	}
+
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, velocity); // bth commented
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, HIGH); // bth moved outside of the loop - no idea why it is in there.
+
+	if (forward) {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, HIGH);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW);
+	} else {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, HIGH);
+	}
+}
+
+void Wheel_TurnRightWheel(bool forward, uint16_t velocity) {
+	printf("Wheel_TurnRightWheel: %d, %d \n", forward, velocity);
+	if (WheelEncoder_GetIsStopped()) {
+		Wheel_StopRightWheel();
+		return;
+	}
+
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, velocity); // bth commented
+	//GPIO_DigitalWrite(GPIOA, GPIO_Pin_8, HIGH); // bth moved outside of the loop - no idea why it is in there.
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, HIGH); // bth moved outside of the loop - no idea why it is in there.
+
+	if (forward) {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, HIGH);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW);
+	} else {
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW);
+		GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, HIGH);
+	}
+}
+
+void Wheel_Straight(bool forward, uint16_t velocity) {
+	printf("Wheel_Straight: %d\n", velocity);
+	if (WheelEncoder_GetIsStopped()) {
+		Wheel_StopLeftWheel();
+		Wheel_StopRightWheel();
+		return;
+	}
+
+	Wheel_TurnLeftWheel(forward, velocity);
+	Wheel_TurnRightWheel(forward, velocity);
+}
+
+
+void Wheel_StopLeftWheel(void) {
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_4, 0);
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_10, LOW); // was HIGH
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_3, LOW); // was HIGH
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_5, LOW);
+}
+
+void Wheel_StopRightWheel(void) {
+	GPIO_AnalogWrite(GPIOB, GPIO_Pin_1, 0);
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_14, LOW); // was HIGH
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_13, LOW); // was HIGH
+	GPIO_DigitalWrite(GPIOB, GPIO_Pin_15, LOW);
+}
+
+

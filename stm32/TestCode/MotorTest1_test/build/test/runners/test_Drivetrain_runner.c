@@ -40,6 +40,15 @@ extern void test_whenInitializing_thenWheelsAreStopped();
 extern void test_whenFullStop_thenWheelsAreStoppedImmediately();
 extern void test_whenMovingLeft_thenMaximumTurnNoMoreThanNegative90();
 extern void test_whenMovingRight_thenMaximumTurnNoMoreThan90();
+extern void test_whenMoving90DegreesRightForward_thenInnerWheelDoesNotTurn();
+extern void test_whenMoving45DegreesRightForward_thenWheelTurnsAtHalfSpeed();
+extern void test_whenMoving45DegreesLeftForward_thenWheelTurnsAtHalfSpeed();
+extern void test_whenMovingStraightForward_thenBothWheelsTurnWithSameVelocity();
+extern void test_whenMoving90DegreesRightReverse_thenInnerWheelDoesNotTurn();
+extern void test_whenMoving45DegreesRightReverse_thenWheelTurnsAtHalfSpeed();
+extern void test_whenMoving45DegreesLeftReverse_thenWheelTurnsAtHalfSpeed();
+extern void test_whenMovingStraightReverse_thenBothWheelsTurnWithSameVelocity();
+extern void test_whenMovingWithNoVelocity_thenWheelsAreStopped();
 
 
 /*=======Mock Management=====*/
@@ -79,6 +88,15 @@ int main(void)
   RUN_TEST(test_whenFullStop_thenWheelsAreStoppedImmediately, 29);
   RUN_TEST(test_whenMovingLeft_thenMaximumTurnNoMoreThanNegative90, 38);
   RUN_TEST(test_whenMovingRight_thenMaximumTurnNoMoreThan90, 44);
+  RUN_TEST(test_whenMoving90DegreesRightForward_thenInnerWheelDoesNotTurn, 50);
+  RUN_TEST(test_whenMoving45DegreesRightForward_thenWheelTurnsAtHalfSpeed, 59);
+  RUN_TEST(test_whenMoving45DegreesLeftForward_thenWheelTurnsAtHalfSpeed, 68);
+  RUN_TEST(test_whenMovingStraightForward_thenBothWheelsTurnWithSameVelocity, 77);
+  RUN_TEST(test_whenMoving90DegreesRightReverse_thenInnerWheelDoesNotTurn, 92);
+  RUN_TEST(test_whenMoving45DegreesRightReverse_thenWheelTurnsAtHalfSpeed, 101);
+  RUN_TEST(test_whenMoving45DegreesLeftReverse_thenWheelTurnsAtHalfSpeed, 110);
+  RUN_TEST(test_whenMovingStraightReverse_thenBothWheelsTurnWithSameVelocity, 119);
+  RUN_TEST(test_whenMovingWithNoVelocity_thenWheelsAreStopped, 126);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());

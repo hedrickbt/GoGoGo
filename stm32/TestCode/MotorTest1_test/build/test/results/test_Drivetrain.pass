@@ -15,14 +15,50 @@
 - :test: test_whenMovingRight_thenMaximumTurnNoMoreThan90
   :line: 44
   :message: ''
+- :test: test_whenMoving90DegreesRightForward_thenInnerWheelDoesNotTurn
+  :line: 50
+  :message: ''
+- :test: test_whenMoving45DegreesRightForward_thenWheelTurnsAtHalfSpeed
+  :line: 59
+  :message: ''
+- :test: test_whenMoving45DegreesLeftForward_thenWheelTurnsAtHalfSpeed
+  :line: 68
+  :message: ''
+- :test: test_whenMovingStraightForward_thenBothWheelsTurnWithSameVelocity
+  :line: 77
+  :message: ''
+- :test: test_whenMoving90DegreesRightReverse_thenInnerWheelDoesNotTurn
+  :line: 92
+  :message: ''
+- :test: test_whenMoving45DegreesRightReverse_thenWheelTurnsAtHalfSpeed
+  :line: 101
+  :message: ''
+- :test: test_whenMoving45DegreesLeftReverse_thenWheelTurnsAtHalfSpeed
+  :line: 110
+  :message: ''
+- :test: test_whenMovingStraightReverse_thenBothWheelsTurnWithSameVelocity
+  :line: 119
+  :message: ''
+- :test: test_whenMovingWithNoVelocity_thenWheelsAreStopped
+  :line: 126
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 13
+  :passed: 13
   :failed: 0
   :ignored: 0
 :stdout:
 - 'Drivetrain_Move: -100, 100 '
 - 'Drivetrain_Move: 100, 100 '
+- 'Drivetrain_Move: 90, 100 '
+- 'Drivetrain_Move: 45, 100 '
+- 'Drivetrain_Move: -45, 100 '
+- 'Drivetrain_Move: 0, 100 '
+- 'Drivetrain_Move: 90, -100 '
+- 'Drivetrain_Move: 45, -100 '
+- 'Drivetrain_Move: -45, -100 '
+- 'Drivetrain_Move: 0, -100 '
+- 'Drivetrain_Move: 90, 0 '
 - ''
