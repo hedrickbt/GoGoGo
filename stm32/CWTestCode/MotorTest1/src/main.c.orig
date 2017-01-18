@@ -1,0 +1,69 @@
+// Brooke T. Hedrick 1.13.2017
+// Inspiration
+// http://www.micromouseonline.com/2016/02/02/systick-configuration-made-easy-on-the-stm32/
+
+#include "stm32f0xx.h"
+#include "hardware.h"
+ 
+void board_leds_init(void) {
+  GPIO_InitTypeDef GPIO_InitStructure;
+  // always do this with an auto structure as it is undefined
+  GPIO_StructInit(&GPIO_InitStructure);
+  RCC_AHBPeriphClockCmd(LED_PORT_CLOCK, ENABLE);
+  GPIO_StructInit(&GPIO_InitStructure);
+  GPIO_InitStructure.GPIO_Pin = GREEN_PIN;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  GPIO_Init(LED_PORT, &GPIO_InitStructure);
+  GPIO_ResetBits(LED_PORT, GREEN_PIN);
+}
+ 
+void systickInit(uint16_t frequency) {
+  RCC_ClocksTypeDef RCC_Clocks;
+  RCC_GetClocksFreq(&RCC_Clocks);
+  (void) SysTick_Config(RCC_Clocks.HCLK_Frequency / frequency);
+}
+ 
+static volatile uint32_t ticks;
+ 
+#ifdef __cplusplus
+extern "C" 
+#endif
+void SysTick_Handler(void) {
+  ticks++;
+}
+ 
+// return the system clock as milliseconds
+ 
+static inline uint32_t millis(void) {
+  return ticks;
+}
+ 
+void delay_ms(uint32_t t) {
+  uint32_t start, end;
+  start = millis();
+  end = start + t;
+  if (start < end) { 
+    while ((millis() >= start) && (millis() < end)) { 
+      // do nothing 
+    } 
+  } else { 
+    while ((millis() >= start) || (millis() < end)) {
+      // do nothing
+    };
+  }
+}
+ 
+int main(void) {
+  board_leds_init();
+  systickInit(1000);
+  while (1) {
+    GPIO_SetBits(GREEN_LED);
+    delay_ms(1000);
+    GPIO_ResetBits(GREEN_LED);
+    delay_ms(100);
+  }
+  return 0;
+}
